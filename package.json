@@ -1,0 +1,24 @@
+{
+  "name": "cross-doc-gui",
+  "version": "0.0.1",
+  "description": "Graphical user interface for Cross-doc",
+  "main": "index.js",
+  "type": "script",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Dorward <david@dorward.me.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "cross-doc": "file:../cross-doc",
+    "electron": "^9.0.0",
+    "primeicons": "^4.0.0-rc.1",
+    "primereact": "^4.2.1",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^6",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}
