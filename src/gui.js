@@ -1,24 +1,25 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
+const PDFWindow = require("electron-pdf-window");
 
 const {
-	sort:sortPromise,
+	sort: sortPromise,
 	get_files,
 	read_files,
 	parse_data,
 	clean_html,
 	add_front_matter,
 	warn_missing_reciprocal_links,
-	read, 
+	read,
 	generate_html,
-	replace_placeholders, 
-	add_title_attributes, 
-	add_table_of_contents, 
-	output
+	replace_placeholders,
+	add_title_attributes,
+	add_table_of_contents,
+	output,
 } = require("cross-doc");
 
 ipcMain.on("request-refresh", async (event, options) => {
 	console.log("Refresh request");
-	console.log({options});
+	console.log({ options });
 	const entries = await get_data(options);
 	const categories = await get_categories(options);
 	event.reply("refresh", { entries, categories });
@@ -26,9 +27,12 @@ ipcMain.on("request-refresh", async (event, options) => {
 
 ipcMain.on("request-pdf", async (event, options) => {
 	console.log("Refresh pdf");
-	const result = await createPDF(options);
-	console.log({result});
-	event.reply("pdf", "done");
+	await createPDF(options);
+	const win = new PDFWindow({
+		width: 800,
+		height: 600,
+	});
+	win.loadFile(options.pdf_file_name);
 });
 
 const createWindow = () => {
@@ -38,7 +42,7 @@ const createWindow = () => {
 		height: 600,
 		webPreferences: {
 			nodeIntegration: true,
-			enableRemoteModule: true
+			enableRemoteModule: true,
 		},
 	});
 
@@ -79,8 +83,8 @@ async function get_data(options) {
 }
 
 async function createPDF(options) {
-	console.log({options});
-	const {sort} = await sortPromise(options);
+	console.log({ options });
+	const { sort } = await sortPromise(options);
 	process.stderr.write("Getting files....\n");
 	const files = await get_files(options);
 	process.stderr.write("Reading files....\n");
@@ -106,7 +110,7 @@ async function createPDF(options) {
 	process.stderr.write("Generating output....\n");
 	// const graph = generate_graph($, sorted_data, options);
 	output($, options);
-  
+	return options.pdf_file_name;
 }
 
 async function get_categories(options) {
