@@ -11,13 +11,19 @@
   "author": "David Dorward <david@dorward.me.uk>",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.6",
     "cross-doc": "file:../cross-doc",
     "electron": "^9.0.0",
     "primeicons": "^4.0.0-rc.1",
     "primereact": "^4.2.1",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.6",
     "eslint": "^6",
     "eslint-plugin-import": "^2.20.2"
   }
