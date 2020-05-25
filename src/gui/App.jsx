@@ -67,6 +67,12 @@ export const App = () => {
               onClick={refresh}
               //   style={{ marginRight: ".25em" }}
             />
+            <Button
+              label="Publish"
+              icon="pi pi-file-pdf"
+              onClick={pdf}
+              //   style={{ marginRight: ".25em" }}
+            />
           </div>
           {/* <div className="p-toolbar-group-right">
           </div> */}
@@ -86,6 +92,10 @@ export const App = () => {
   );
 };
 
+const pdf = () => {
+  ipcRenderer.send("request-pdf", options);
+};
+
 const refresh = () => {
   ipcRenderer.send("request-refresh", options);
 };
@@ -96,6 +106,10 @@ const open = () => {
   });
   if (typeof directory === "undefined") return;
   options.project = directory[0];
+  options.baseName = `${options.project}/out/auto`;
+  options.html_file_name = `${options.baseName}.html`;
+  options.embedded_html_file_name = `${options.baseName}-complete.html`;
+  options.pdf_file_name = `${options.baseName}.pdf`;
   refresh();
 };
 
