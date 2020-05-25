@@ -3,8 +3,18 @@ import ReactDOM from "react-dom";
 import { Toolbar } from "primereact/toolbar";
 import { Button } from "primereact/button";
 import { Tree } from "primereact/tree";
+const { dialog } = require("electron").remote;
 
 const { ipcRenderer } = require("electron");
+
+const options = {
+  baseName: "out/heb-sed",
+  project: "../legends-walk",
+  html_file_name: "../legends-walk/out/test.html",
+  embedded_html_file_name: "../legends-walk/out/test-complete.html",
+  pdf_file_name: "../legends-walk/out/test.pdf",
+  theme: "A5",
+};
 
 export const App = () => {
   const mungeData = (data, cats) =>
@@ -46,6 +56,12 @@ export const App = () => {
         <Toolbar>
           <div className="p-toolbar-group-left">
             <Button
+              label="Open"
+              icon="pi pi-folder-open"
+              onClick={open}
+              //   style={{ marginRight: ".25em" }}
+            />
+            <Button
               label="Refresh"
               icon="pi pi-refresh"
               onClick={refresh}
@@ -71,15 +87,16 @@ export const App = () => {
 };
 
 const refresh = () => {
-  const options = {
-      baseName: "out/heb-sed",
-      project: "../legends-walk",
-      html_file_name: "../legends-walk/out/test.html",
-      embedded_html_file_name: "../legends-walk/out/test-complete.html",
-      pdf_file_name: "../legends-walk/out/test.pdf",
-      theme: "A5",
-  };
   ipcRenderer.send("request-refresh", options);
+};
+
+const open = () => {
+  const directory = dialog.showOpenDialogSync({
+    properties: ["openDirectory"],
+  });
+  if (typeof directory === "undefined") return;
+  options.project = directory[0];
+  refresh();
 };
 
 // console.log("Hello, world");
