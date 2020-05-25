@@ -83,7 +83,15 @@ export const App = () => {
             value={data}
             selectionMode="checkbox"
             selectionKeys={selections}
-            onSelectionChange={(e) => setSelections(e.value)}
+            onSelectionChange={(e) => {
+              setSelections(e.value);
+              const values = Object.entries(e.value)
+                .filter( ([name, {checked} ]) => checked )
+                .map( ([name]) => name )
+                .join(",");
+              options.include = values;
+            }}
+            
             style={{ width: "auto" }}
           />
         </div>
@@ -110,6 +118,7 @@ const open = () => {
   options.html_file_name = `${options.baseName}.html`;
   options.embedded_html_file_name = `${options.baseName}-complete.html`;
   options.pdf_file_name = `${options.baseName}.pdf`;
+  options.include = null;
   refresh();
 };
 

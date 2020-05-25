@@ -38,7 +38,7 @@ ipcMain.on("request-pdf", async (event, options) => {
 const createWindow = () => {
 	// Create the browser window.
 	const win = new BrowserWindow({
-		width: 1800,
+		width: 800,
 		height: 600,
 		webPreferences: {
 			nodeIntegration: true,
@@ -50,7 +50,7 @@ const createWindow = () => {
 	win.loadFile("../assets/index.html");
 
 	// Open the DevTools.
-	win.webContents.openDevTools();
+	// win.webContents.openDevTools();
 };
 
 app.whenReady().then(createWindow);
@@ -109,7 +109,7 @@ async function createPDF(options) {
 	add_table_of_contents($);
 	process.stderr.write("Generating output....\n");
 	// const graph = generate_graph($, sorted_data, options);
-	output($, options);
+	await output($, options);
 	return options.pdf_file_name;
 }
 
