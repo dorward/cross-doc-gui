@@ -1,5 +1,5 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
-const PDFWindow = require("electron-pdf-window");
+const { app, BrowserWindow, ipcMain } = require('electron');
+const PDFWindow = require('electron-pdf-window');
 
 const {
 	sort: sortPromise,
@@ -15,18 +15,18 @@ const {
 	add_title_attributes,
 	add_table_of_contents,
 	output,
-} = require("cross-doc");
+} = require('cross-doc');
 
-ipcMain.on("request-refresh", async (event, options) => {
-	console.log("Refresh request");
+ipcMain.on('request-refresh', async (event, options) => {
+	console.log('Refresh request');
 	console.log({ options });
 	const entries = await get_data(options);
 	const categories = await get_categories(options);
-	event.reply("refresh", { entries, categories });
+	event.reply('refresh', { entries, categories });
 });
 
-ipcMain.on("request-pdf", async (event, options) => {
-	console.log("Refresh pdf");
+ipcMain.on('request-pdf', async (event, options) => {
+	console.log('Refresh pdf');
 	await createPDF(options);
 	const win = new PDFWindow({
 		width: 800,
@@ -47,7 +47,7 @@ const createWindow = () => {
 	});
 
 	// and load the index.html of the app.
-	win.loadFile("../assets/index.html");
+	win.loadFile('../assets/index.html');
 
 	// Open the DevTools.
 	// win.webContents.openDevTools();
@@ -56,28 +56,28 @@ const createWindow = () => {
 app.whenReady().then(createWindow);
 
 // Quit when all windows are closed.
-app.on("window-all-closed", () => {
-	if (process.platform !== "darwin") app.quit();
+app.on('window-all-closed', () => {
+	if (process.platform !== 'darwin') app.quit();
 });
 
-app.on("activate", () => {
+app.on('activate', () => {
 	if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
 async function get_data(options) {
 	const { sort } = await sortPromise(options);
 	const files = await get_files(options);
-	console.log("Files");
+	console.log('Files');
 	const data = await read_files(files);
-	console.log("Data");
+	console.log('Data');
 	const parsed_data = parse_data(data);
-	console.log("Parsed data");
+	console.log('Parsed data');
 	const cleaned_data = clean_html(parsed_data);
-	console.log("Cleaned data");
-	const enhanced_data = add_front_matter(cleaned_data);
-	console.log("Enhanced data");
-	warn_missing_reciprocal_links(enhanced_data);
-	console.log("Warnings");
+	console.log('Cleaned data');
+	const enhanced_data = add_front_matter(cleaned_data, options);
+	console.log('Enhanced data');
+	warn_missing_reciprocal_links(enhanced_data, options);
+	console.log('Warnings');
 	const sorted_data = sort(enhanced_data);
 	return sorted_data;
 }
@@ -85,37 +85,35 @@ async function get_data(options) {
 async function createPDF(options) {
 	console.log({ options });
 	const { sort } = await sortPromise(options);
-	process.stderr.write("Getting files....\n");
+	process.stderr.write('Getting files....\n');
 	const files = await get_files(options);
-	process.stderr.write("Reading files....\n");
+	process.stderr.write('Reading files....\n');
 	const data = await read_files(files);
-	process.stderr.write("Parsing data....\n");
+	process.stderr.write('Parsing data....\n');
 	const parsed_data = parse_data(data);
-	process.stderr.write("Cleaning HTML....\n");
+	process.stderr.write('Cleaning HTML....\n');
 	const cleaned_data = clean_html(parsed_data);
-	process.stderr.write("Adding front matter....\n");
-	const enhanced_data = add_front_matter(cleaned_data);
-	process.stderr.write("Checking links....\n");
-	warn_missing_reciprocal_links(enhanced_data);
-	process.stderr.write("Sorting data....\n");
+	process.stderr.write('Adding front matter....\n');
+	const enhanced_data = add_front_matter(cleaned_data, options);
+	process.stderr.write('Checking links....\n');
+	warn_missing_reciprocal_links(enhanced_data, options);
+	process.stderr.write('Sorting data....\n');
 	const sorted_data = sort(enhanced_data);
-	process.stderr.write("Generating HTML....\n");
+	process.stderr.write('Generating HTML....\n');
 	const $ = await generate_html(sorted_data, options);
-	process.stderr.write("Replacing placeholders....\n");
+	process.stderr.write('Replacing placeholders....\n');
 	replace_placeholders($);
-	process.stderr.write("Adding title attributes....\n");
+	process.stderr.write('Adding title attributes....\n');
 	add_title_attributes($);
-	process.stderr.write("Building table of contents....\n");
-	add_table_of_contents($);
-	process.stderr.write("Generating output....\n");
+	process.stderr.write('Building table of contents....\n');
+	await add_table_of_contents($, options);
+	process.stderr.write('Generating output....\n');
 	// const graph = generate_graph($, sorted_data, options);
 	await output($, options);
 	return options.pdf_file_name;
 }
 
 async function get_categories(options) {
-	const default_types = JSON.parse(
-		await read(`${options.project}/data/categories.json`)
-	);
+	const default_types = JSON.parse(await read(`${options.project}/data/categories.json`));
 	return default_types;
 }
