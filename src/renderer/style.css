@@ -1,0 +1,109 @@
+:root {
+	font-family: system-ui, sans-serif;
+	color-scheme: light dark;
+}
+body {
+	margin: 0;
+	background: var(--surface-ground);
+	color: var(--text-color);
+}
+main {
+	padding: 1rem;
+	max-width: 70rem;
+	margin: auto;
+}
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.project-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+.project-toolbar .p-toolbar-group-start {
+	flex: 1;
+	min-width: 0;
+}
+.project-toolbar .p-toolbar-group-end {
+	margin-inline-start: auto;
+	flex-shrink: 0;
+}
+.project-path {
+	overflow-wrap: anywhere;
+}
+[role='alert'] {
+	color: light-dark(#a32121, #ffa6a6);
+}
+
+.settings-button {
+	position: relative;
+	display: inline-flex;
+}
+.settings-attention {
+	position: absolute;
+	top: -0.2rem;
+	right: -0.2rem;
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 50%;
+	background: #dc2626;
+	border: 2px solid var(--surface-ground);
+	pointer-events: none;
+}
+.settings-dialog {
+	width: min(34rem, 90vw);
+}
+.prince-path {
+	overflow-wrap: anywhere;
+}
+
+.theme-picker {
+	max-width: 16rem;
+	appearance: auto;
+}
+.no-themes {
+	align-self: center;
+	color: light-dark(#a35c00, #fbbf24);
+	font-size: 1.5rem;
+}
+
+.settings-dialog form {
+	display: grid;
+	gap: 0.5rem;
+}
+.output-setting {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.5rem;
+	margin-block-start: 0.75rem;
+}
+.output-setting label {
+	grid-column: 1 / -1;
+}
+.settings-dialog input {
+	min-width: 0;
+	width: 100%;
+}
+
+[aria-label='Compilation artifacts'] table {
+	width: 100%;
+	border-collapse: collapse;
+}
+[aria-label='Compilation artifacts'] th,
+[aria-label='Compilation artifacts'] td {
+	padding: 0.5rem;
+	text-align: start;
+	vertical-align: top;
+	border-bottom: 1px solid var(--surface-border);
+}
+.artifact-path {
+	overflow-wrap: anywhere;
+}
+
+.appearance-picker {
+	display: block;
+	min-width: 10rem;
+	margin-block: 0.5rem 1.5rem;
+}

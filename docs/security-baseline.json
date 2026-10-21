@@ -1,0 +1,2858 @@
+{
+  "date": "2026-10-21",
+  "tool": "pnpm 12.14.0",
+  "note": "Imported legacy dependency baseline; findings remain for later upgrade batches. Counts are audit findings, not unique affected packages or proof of exploitation.",
+  "full": {
+    "info": 0,
+    "low": 11,
+    "moderate": 42,
+    "high": 45,
+    "critical": 3
+  },
+  "production": {
+    "info": 0,
+    "low": 8,
+    "moderate": 31,
+    "high": 19,
+    "critical": 2
+  },
+  "findings": [
+    {
+      "scope": "full",
+      "id": "1088948",
+      "package": "got",
+      "severity": "moderate",
+      "title": "Got allows a redirect to a UNIX socket",
+      "url": "https://github.com/advisories/GHSA-pfrx-2q88-qq97",
+      "paths": [
+        ".>electron-pdf-window>got",
+        ".>electron>@electron/get>got"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1088971",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "AutoUpdater module fails to validate certain nested components of the bundle",
+      "url": "https://github.com/advisories/GHSA-77xc-hjv8-ww97",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1088975",
+      "package": "electron",
+      "severity": "low",
+      "title": "Compromised child renderer processes could obtain IPC access without nodeIntegrationInSubFrames being enabled",
+      "url": "https://github.com/advisories/GHSA-mq8j-3h7h-p8g7",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1089220",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Exfiltration of hashed SMB credentials on Windows via file:// redirect",
+      "url": "https://github.com/advisories/GHSA-p2jh-44qj-pf2v",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1089681",
+      "package": "path-parse",
+      "severity": "moderate",
+      "title": "Regular Expression Denial of Service in path-parse",
+      "url": "https://github.com/advisories/GHSA-hj48-42vr-x3v9",
+      "paths": [
+        ".>@babel/cli>@babel/core>resolve>path-parse",
+        ".>@babel/core>resolve>path-parse",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>resolve>path-parse",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>resolve>path-parse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>resolve>path-parse",
+        ".>eslint-plugin-import>eslint-import-resolver-node>resolve>path-parse",
+        ".>eslint-plugin-import>eslint-module-utils>eslint-import-resolver-node>resolve>path-parse",
+        ".>eslint-plugin-import>read-pkg-up>read-pkg>normalize-package-data>resolve>path-parse",
+        ".>eslint-plugin-import>resolve>path-parse"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1092662",
+      "package": "electron",
+      "severity": "low",
+      "title": "Renderers can obtain access to random bluetooth device without permission in Electron",
+      "url": "https://github.com/advisories/GHSA-3p22-ghq8-v749",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1094087",
+      "package": "decode-uri-component",
+      "severity": "high",
+      "title": "decode-uri-component vulnerable to Denial of Service (DoS)",
+      "url": "https://github.com/advisories/GHSA-w573-4hg7-7wgq",
+      "paths": [
+        ".>@babel/cli>chokidar>anymatch>micromatch>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>extglob>expand-brackets>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>extglob>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>nanomatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>extglob>expand-brackets>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>extglob>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>nanomatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>snapdragon>source-map-resolve>decode-uri-component"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1094091",
+      "package": "ansi-regex",
+      "severity": "high",
+      "title": "Inefficient Regular Expression Complexity in chalk/ansi-regex",
+      "url": "https://github.com/advisories/GHSA-93q8-gq69-wqmw",
+      "paths": [
+        ".>eslint-plugin-import>eslint>strip-ansi>ansi-regex",
+        ".>eslint-plugin-import>eslint>table>string-width>strip-ansi>ansi-regex",
+        ".>eslint>strip-ansi>ansi-regex",
+        ".>eslint>table>string-width>strip-ansi>ansi-regex"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1094092",
+      "package": "ansi-regex",
+      "severity": "high",
+      "title": "Inefficient Regular Expression Complexity in chalk/ansi-regex",
+      "url": "https://github.com/advisories/GHSA-93q8-gq69-wqmw",
+      "paths": [
+        ".>eslint-plugin-import>eslint>inquirer>string-width>strip-ansi>ansi-regex",
+        ".>eslint-plugin-import>eslint>inquirer>strip-ansi>ansi-regex",
+        ".>eslint>inquirer>string-width>strip-ansi>ansi-regex",
+        ".>eslint>inquirer>strip-ansi>ansi-regex"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1094579",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron vulnerable to out-of-package code execution when launched with arbitrary cwd",
+      "url": "https://github.com/advisories/GHSA-7x97-j373-85x5",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1094583",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron context isolation bypass via nested unserializable return value",
+      "url": "https://github.com/advisories/GHSA-p7v2-p9m8-qqg7",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1096485",
+      "package": "minimatch",
+      "severity": "high",
+      "title": "minimatch ReDoS vulnerability",
+      "url": "https://github.com/advisories/GHSA-f8q6-p94x-37v3",
+      "paths": [
+        ".>@babel/cli>glob>minimatch",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint-plugin-import>eslint>minimatch",
+        ".>eslint-plugin-import>minimatch",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint>minimatch"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1096494",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron affected by libvpx's heap buffer overflow in vp8 encoding",
+      "url": "https://github.com/advisories/GHSA-qqvq-6xgj-jw8g",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1096544",
+      "package": "json5",
+      "severity": "high",
+      "title": "Prototype Pollution in JSON5 via Parse Method",
+      "url": "https://github.com/advisories/GHSA-9c47-m6qq-7p4h",
+      "paths": [
+        ".>@babel/cli>@babel/core>json5",
+        ".>@babel/core>json5",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>json5",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>json5",
+        ".>@babel/preset-env>@babel/core>json5",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>json5",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>json5",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1096792",
+      "package": "debug",
+      "severity": "low",
+      "title": "Regular Expression Denial of Service in debug",
+      "url": "https://github.com/advisories/GHSA-gxpj-cx7g-858c",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/cli>@babel/core>@babel/traverse>debug",
+        ".>@babel/cli>@babel/core>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/traverse>debug",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>debug",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse>debug",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>debug",
+        ".>electron>@electron/get>debug",
+        ".>electron>@electron/get>sumchecker>debug",
+        ".>eslint-plugin-import>eslint>debug"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1097678",
+      "package": "minimist",
+      "severity": "critical",
+      "title": "Prototype Pollution in minimist",
+      "url": "https://github.com/advisories/GHSA-xvch-5gv4-984h",
+      "paths": [
+        ".>@babel/cli>@babel/core>json5>minimist",
+        ".>@babel/core>json5>minimist",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>json5>minimist",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>json5>minimist",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>json5>minimist",
+        ".>electron>extract-zip>mkdirp>minimist",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>write>mkdirp>minimist",
+        ".>eslint-plugin-import>eslint>mkdirp>minimist",
+        ".>eslint>file-entry-cache>flat-cache>write>mkdirp>minimist",
+        ".>eslint>mkdirp>minimist"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1097712",
+      "package": "glob-parent",
+      "severity": "high",
+      "title": "glob-parent vulnerable to Regular Expression Denial of Service in enclosure regex",
+      "url": "https://github.com/advisories/GHSA-ww39-953v-wcq6",
+      "paths": [
+        ".>eslint-plugin-import>eslint>glob-parent",
+        ".>eslint>glob-parent"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1098094",
+      "package": "braces",
+      "severity": "high",
+      "title": "Uncontrolled resource consumption in braces",
+      "url": "https://github.com/advisories/GHSA-grv7-fg5c-xmjg",
+      "paths": [
+        ".>@babel/cli>chokidar>anymatch>micromatch>braces",
+        ".>@babel/cli>chokidar>braces",
+        ".>@babel/cli>chokidar>readdirp>micromatch>braces"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1098681",
+      "package": "micromatch",
+      "severity": "moderate",
+      "title": "Regular Expression Denial of Service (ReDoS) in micromatch",
+      "url": "https://github.com/advisories/GHSA-952p-6rrq-rcjv",
+      "paths": [
+        ".>@babel/cli>chokidar>anymatch>micromatch",
+        ".>@babel/cli>chokidar>readdirp>micromatch"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1099657",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "ASAR Integrity bypass via filetype confusion in electron",
+      "url": "https://github.com/advisories/GHSA-7m48-wc93-9g85",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1102329",
+      "package": "deep-extend",
+      "severity": "critical",
+      "title": "Prototype Pollution in deep-extend",
+      "url": "https://github.com/advisories/GHSA-hr2v-3952-633q",
+      "paths": [
+        ".>electron-pdf-window>deep-extend"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1102444",
+      "package": "word-wrap",
+      "severity": "moderate",
+      "title": "word-wrap vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-j8xg-fqg3-53r7",
+      "paths": [
+        ".>eslint-plugin-import>eslint>optionator>word-wrap",
+        ".>eslint>optionator>word-wrap"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1102456",
+      "package": "http-cache-semantics",
+      "severity": "high",
+      "title": "http-cache-semantics vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-rc47-6667-2j5j",
+      "paths": [
+        ".>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1104000",
+      "package": "@babel/runtime",
+      "severity": "moderate",
+      "title": "Babel has inefficient RegExp complexity in generated code with .replace when transpiling named capturing groups",
+      "url": "https://github.com/advisories/GHSA-968p-4wvh-cqc8",
+      "paths": [
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>regenerator-transform>@babel/runtime"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1104001",
+      "package": "@babel/helpers",
+      "severity": "moderate",
+      "title": "Babel has inefficient RegExp complexity in generated code with .replace when transpiling named capturing groups",
+      "url": "https://github.com/advisories/GHSA-968p-4wvh-cqc8",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/helpers",
+        ".>@babel/core>@babel/helpers",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helpers",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1104663",
+      "package": "cross-spawn",
+      "severity": "high",
+      "title": "Regular Expression Denial of Service (ReDoS) in cross-spawn",
+      "url": "https://github.com/advisories/GHSA-3xgq-45jj-v275",
+      "paths": [
+        ".>eslint-plugin-import>eslint>cross-spawn",
+        ".>eslint>cross-spawn"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1105443",
+      "package": "brace-expansion",
+      "severity": "low",
+      "title": "brace-expansion Regular Expression Denial of Service vulnerability",
+      "url": "https://github.com/advisories/GHSA-v6h2-p8h4-qcjw",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1105820",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron vulnerable to Heap Buffer Overflow in NativeImage",
+      "url": "https://github.com/advisories/GHSA-6r2x-8pq8-9489",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1107272",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron has ASAR Integrity Bypass via resource modification",
+      "url": "https://github.com/advisories/GHSA-vmqv-hx8q-j7mg",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1109537",
+      "package": "tmp",
+      "severity": "low",
+      "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+      "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
+      "paths": [
+        ".>eslint-plugin-import>eslint>inquirer>external-editor>tmp",
+        ".>eslint>inquirer>external-editor>tmp"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1112714",
+      "package": "js-yaml",
+      "severity": "moderate",
+      "title": "js-yaml has prototype pollution in merge (<<)",
+      "url": "https://github.com/advisories/GHSA-mh29-5h37-fv8m",
+      "paths": [
+        ".>eslint-plugin-import>eslint>js-yaml",
+        ".>eslint>js-yaml"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1112918",
+      "package": "semver",
+      "severity": "high",
+      "title": "semver vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+      "paths": [
+        ".>@babel/cli>@babel/core>semver",
+        ".>@babel/cli>make-dir>semver",
+        ".>@babel/core>semver",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>semver",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>semver",
+        ".>@babel/preset-env>@babel/compat-data>semver",
+        ".>@babel/preset-env>@babel/core>semver",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/compat-data>semver",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>semver",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>semver",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>semver",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>semver",
+        ".>@babel/preset-env>semver",
+        ".>eslint-plugin-import>eslint>cross-spawn>semver",
+        ".>eslint-plugin-import>read-pkg-up>read-pkg>normalize-package-data>semver",
+        ".>eslint>cross-spawn>semver"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1112921",
+      "package": "semver",
+      "severity": "high",
+      "title": "semver vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+      "paths": [
+        ".>@babel/preset-env>core-js-compat>semver",
+        ".>electron>@electron/get>global-agent>semver"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1112922",
+      "package": "semver",
+      "severity": "high",
+      "title": "semver vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+      "paths": [
+        ".>electron>@electron/get>semver",
+        ".>eslint-plugin-import>eslint>semver",
+        ".>eslint>semver"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1113459",
+      "package": "minimatch",
+      "severity": "high",
+      "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+      "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26",
+      "paths": [
+        ".>@babel/cli>glob>minimatch",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint-plugin-import>eslint>minimatch",
+        ".>eslint-plugin-import>minimatch",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint>minimatch"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1113538",
+      "package": "minimatch",
+      "severity": "high",
+      "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+      "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj",
+      "paths": [
+        ".>@babel/cli>glob>minimatch",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint-plugin-import>eslint>minimatch",
+        ".>eslint-plugin-import>minimatch",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint>minimatch"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1113546",
+      "package": "minimatch",
+      "severity": "high",
+      "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+      "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74",
+      "paths": [
+        ".>@babel/cli>glob>minimatch",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint-plugin-import>eslint>minimatch",
+        ".>eslint-plugin-import>minimatch",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch",
+        ".>eslint>minimatch"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1113714",
+      "package": "ajv",
+      "severity": "moderate",
+      "title": "ajv has ReDoS when using `$data` option",
+      "url": "https://github.com/advisories/GHSA-2g4f-4pwh-qvx6",
+      "paths": [
+        ".>eslint-plugin-import>eslint>ajv",
+        ".>eslint-plugin-import>eslint>table>ajv",
+        ".>eslint>ajv",
+        ".>eslint>table>ajv"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1114526",
+      "package": "flatted",
+      "severity": "high",
+      "title": "flatted vulnerable to unbounded recursion DoS in parse() revive phase",
+      "url": "https://github.com/advisories/GHSA-25h7-pfq9-p65f",
+      "paths": [
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>flatted",
+        ".>eslint>file-entry-cache>flat-cache>flatted"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1115540",
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "title": "brace-expansion: Zero-step sequence causes process hang and memory exhaustion",
+      "url": "https://github.com/advisories/GHSA-f886-m6hf-6m8v",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1115806",
+      "package": "lodash",
+      "severity": "high",
+      "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+      "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-member-expression-to-functions>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-optimise-call-expression>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>lodash",
+        ".>@babel/cli>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>lodash",
+        ".>electron>@electron/get>global-tunnel-ng>lodash",
+        ".>eslint-plugin-import>eslint>inquirer>lodash",
+        ".>eslint-plugin-import>eslint>lodash",
+        ".>eslint-plugin-import>eslint>table>lodash"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1115810",
+      "package": "lodash",
+      "severity": "moderate",
+      "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+      "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-member-expression-to-functions>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-optimise-call-expression>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>lodash",
+        ".>@babel/cli>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>lodash",
+        ".>electron>@electron/get>global-tunnel-ng>lodash",
+        ".>eslint-plugin-import>eslint>inquirer>lodash",
+        ".>eslint-plugin-import>eslint>lodash",
+        ".>eslint-plugin-import>eslint>table>lodash"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116041",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: AppleScript injection in app.moveToApplicationsFolder on macOS",
+      "url": "https://github.com/advisories/GHSA-5rqw-r77c-jp79",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116045",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Service worker can spoof executeJavaScript IPC replies",
+      "url": "https://github.com/advisories/GHSA-xj5x-m3f3-5x3h",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116049",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Incorrect origin passed to permission request handler for iframe requests",
+      "url": "https://github.com/advisories/GHSA-r5p7-gp4j-qhrx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116053",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Out-of-bounds read in second-instance IPC on macOS and Linux",
+      "url": "https://github.com/advisories/GHSA-3c8v-cfp5-9885",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116057",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: nodeIntegrationInWorker not correctly scoped in shared renderer processes",
+      "url": "https://github.com/advisories/GHSA-xwr5-m59h-vwqr",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116060",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in offscreen child window paint callback",
+      "url": "https://github.com/advisories/GHSA-532v-xpq5-8h95",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116064",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Registry key path injection in app.setAsDefaultProtocolClient on Windows",
+      "url": "https://github.com/advisories/GHSA-mwmh-mq4g-g6gr",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116068",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Use-after-free in download save dialog callback",
+      "url": "https://github.com/advisories/GHSA-9w97-2464-8783",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116072",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in WebContents fullscreen, pointer-lock, and keyboard-lock permission callbacks",
+      "url": "https://github.com/advisories/GHSA-8337-3p73-46f4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116076",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in PowerMonitor on Windows and macOS",
+      "url": "https://github.com/advisories/GHSA-jjp3-mq3x-295m",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116084",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Unquoted executable path in app.setLoginItemSettings on Windows",
+      "url": "https://github.com/advisories/GHSA-jfqx-fxh3-c62j",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116088",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: HTTP Response Header Injection in custom protocol handlers and webRequest",
+      "url": "https://github.com/advisories/GHSA-4p4r-m79c-wq3v",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116092",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: USB device selection not validated against filtered device list",
+      "url": "https://github.com/advisories/GHSA-9899-m83m-qhpj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116259",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Crash in clipboard.readImage() on malformed clipboard image data",
+      "url": "https://github.com/advisories/GHSA-f37v-82c4-4x64",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1116320",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Named window.open targets not scoped to the opener's browsing context",
+      "url": "https://github.com/advisories/GHSA-f3pv-wv63-48x8",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1117420",
+      "package": "@babel/traverse",
+      "severity": "critical",
+      "title": "Babel vulnerable to arbitrary code execution when compiling specifically crafted malicious code",
+      "url": "https://github.com/advisories/GHSA-67hx-6x53-jw92",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/cli>@babel/core>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/helpers>@babel/traverse",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core>@babel/traverse"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1117459",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Renderer command-line switch injection via undocumented commandLineSwitches webPreference",
+      "url": "https://github.com/advisories/GHSA-9wfr-w7mm-pc7f",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1120370",
+      "package": "lodash",
+      "severity": "moderate",
+      "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+      "url": "https://github.com/advisories/GHSA-xxjr-mmjv-4gpg",
+      "paths": [
+        ".>@babel/cli>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-member-expression-to-functions>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/helper-optimise-call-expression>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-simple-access>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>@babel/traverse>lodash",
+        ".>@babel/cli>@babel/core>@babel/types>lodash",
+        ".>@babel/cli>@babel/core>lodash",
+        ".>@babel/cli>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-module-imports>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-replace-supers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helper-module-transforms>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/helpers>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/generator>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/helper-get-function-arity>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/template>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-function-name>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/helper-split-export-declaration>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/parser>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/traverse>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>@babel/types>lodash",
+        ".>@babel/plugin-transform-react-jsx>@babel/core>lodash",
+        ".>electron>@electron/get>global-tunnel-ng>lodash",
+        ".>eslint-plugin-import>eslint>inquirer>lodash",
+        ".>eslint-plugin-import>eslint>lodash",
+        ".>eslint-plugin-import>eslint>table>lodash"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1120654",
+      "package": "tmp",
+      "severity": "high",
+      "title": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+      "url": "https://github.com/advisories/GHSA-ph9p-34f9-6g65",
+      "paths": [
+        ".>eslint-plugin-import>eslint>inquirer>external-editor>tmp",
+        ".>eslint>inquirer>external-editor>tmp"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1121859",
+      "package": "js-yaml",
+      "severity": "moderate",
+      "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+      "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+      "paths": [
+        ".>eslint-plugin-import>eslint>js-yaml",
+        ".>eslint>js-yaml"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1123528",
+      "package": "@babel/core",
+      "severity": "low",
+      "title": "@babel/core: Arbitrary File Read via sourceMappingURL Comment",
+      "url": "https://github.com/advisories/GHSA-4x5r-pxfx-6jf8",
+      "paths": [
+        ".>@babel/cli>@babel/core",
+        ".>@babel/core",
+        ".>@babel/plugin-transform-react-jsx>@babel/core",
+        ".>@babel/plugin-transform-react-jsx>@babel/plugin-syntax-jsx>@babel/core",
+        ".>@babel/preset-env>@babel/core",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-async-generator-functions>@babel/plugin-syntax-async-generators>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-dynamic-import>@babel/plugin-syntax-dynamic-import>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-json-strings>@babel/plugin-syntax-json-strings>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-nullish-coalescing-operator>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-numeric-separator>@babel/plugin-syntax-numeric-separator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-syntax-object-rest-spread>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-object-rest-spread>@babel/plugin-transform-parameters>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-catch-binding>@babel/plugin-syntax-optional-catch-binding>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-optional-chaining>@babel/plugin-syntax-optional-chaining>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-async-generators>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-dynamic-import>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-json-strings>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-nullish-coalescing-operator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-numeric-separator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-object-rest-spread>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-catch-binding>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-optional-chaining>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-syntax-top-level-await>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-arrow-functions>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-async-to-generator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoped-functions>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-block-scoping>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-classes>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-computed-properties>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-destructuring>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-duplicate-keys>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-exponentiation-operator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-for-of>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-function-name>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-literals>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-member-expression-literals>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-amd>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-commonjs>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-systemjs>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-modules-umd>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-named-capturing-groups-regex>@babel/helper-create-regexp-features-plugin>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-new-target>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-object-super>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-parameters>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-property-literals>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-regenerator>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-reserved-words>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-shorthand-properties>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-spread>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-sticky-regex>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-template-literals>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-typeof-symbol>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/core",
+        ".>@babel/preset-env>@babel/plugin-transform-unicode-regex>@babel/helper-create-regexp-features-plugin>@babel/core",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/core",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/core",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-proposal-unicode-property-regex>@babel/helper-create-regexp-features-plugin>@babel/core",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/core",
+        ".>@babel/preset-env>@babel/preset-modules>@babel/plugin-transform-dotall-regex>@babel/helper-create-regexp-features-plugin>@babel/core"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1123897",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+      "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1123912",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+      "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+      "paths": [
+        ".>eslint-plugin-import>eslint>js-yaml",
+        ".>eslint>js-yaml"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1130588",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+      "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1130737",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+      "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136551",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Parent process code-sign check is spoofable",
+      "url": "https://github.com/advisories/GHSA-jm7p-cc5g-qwxx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136552",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Custom protocol with supportFetchAPI but not corsEnabled allows cross-origin reads",
+      "url": "https://github.com/advisories/GHSA-v3j7-r9gq-3gjw",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136559",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Extension tab APIs operate across session boundaries",
+      "url": "https://github.com/advisories/GHSA-m55f-7gqj-fr98",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136560",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: shell.openPath path validation bypass via embedded null byte",
+      "url": "https://github.com/advisories/GHSA-5c9j-mhmv-5xgx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136567",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Context isolation bypass via Function.prototype.bind hijack",
+      "url": "https://github.com/advisories/GHSA-h7rp-cf8h-j98x",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136571",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Cross-origin iframe can position native autofill popup",
+      "url": "https://github.com/advisories/GHSA-x8rc-wpg4-grpf",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136575",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Permission Check Handler Receives Main Frame Origin Instead of Requesting Iframe Origin",
+      "url": "https://github.com/advisories/GHSA-9pf5-hg6p-4pwp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136579",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Off-screen rendering trusts GPU-supplied geometry over shared-memory size",
+      "url": "https://github.com/advisories/GHSA-pfmc-3mgc-p6fp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136590",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: HTTP redirect followed into local file loader",
+      "url": "https://github.com/advisories/GHSA-v64r-4m7r-3mvq",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136597",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: window.open features string controls some window options considered privileged",
+      "url": "https://github.com/advisories/GHSA-v93f-fgjr-hjrj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136607",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Sandboxed iframe can bypass the allow-popups restriction via the OpenURL navigation path",
+      "url": "https://github.com/advisories/GHSA-9f4c-93c8-jc8g",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136634",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Sandboxed iframes can launch external protocol handlers",
+      "url": "https://github.com/advisories/GHSA-p2rr-rvmm-c5fp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136647",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: DevTools embedder handler executes arbitrary files via shell open",
+      "url": "https://github.com/advisories/GHSA-f2r8-jv7c-xqmp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136651",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: contextBridge object copy honors prototype setters",
+      "url": "https://github.com/advisories/GHSA-ff2p-hmqr-hxm4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1136659",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: DevTools JavaScript Injection via Unsanitized Dock State Parameter",
+      "url": "https://github.com/advisories/GHSA-4f78-qhmw-8j8m",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1138114",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) \u2014 CVE-2026-59870 fix not backported",
+      "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+      "paths": [
+        ".>eslint-plugin-import>eslint>js-yaml",
+        ".>eslint>js-yaml"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1139346",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip unvalidated symlink path traversal",
+      "url": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
+      "paths": [
+        ".>electron>extract-zip"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1147955",
+      "package": "decode-uri-component",
+      "severity": "moderate",
+      "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+      "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr",
+      "paths": [
+        ".>@babel/cli>chokidar>anymatch>micromatch>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>extglob>expand-brackets>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>extglob>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>nanomatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>anymatch>micromatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>braces>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>extglob>expand-brackets>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>extglob>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>nanomatch>snapdragon>source-map-resolve>decode-uri-component",
+        ".>@babel/cli>chokidar>readdirp>micromatch>snapdragon>source-map-resolve>decode-uri-component"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1153171",
+      "package": "browserslist",
+      "severity": "high",
+      "title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+      "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx",
+      "paths": [
+        ".>@babel/preset-env>@babel/compat-data>browserslist",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/compat-data>browserslist",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>browserslist",
+        ".>@babel/preset-env>browserslist",
+        ".>@babel/preset-env>core-js-compat>browserslist"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1153172",
+      "package": "browserslist",
+      "severity": "high",
+      "title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+      "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g",
+      "paths": [
+        ".>@babel/preset-env>@babel/compat-data>browserslist",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>@babel/compat-data>browserslist",
+        ".>@babel/preset-env>@babel/helper-compilation-targets>browserslist",
+        ".>@babel/preset-env>browserslist",
+        ".>@babel/preset-env>core-js-compat>browserslist"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1193685",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip allows arbitrary file writes through symlink archive entries",
+      "url": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
+      "paths": [
+        ".>electron>extract-zip"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1193726",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+      "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+      "paths": [
+        ".>eslint-plugin-import>eslint>js-yaml",
+        ".>eslint>js-yaml"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1239973",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron drops inherited HTML sandbox restrictions for popups opened through OpenURLFromTab",
+      "url": "https://github.com/advisories/GHSA-hq2x-r82h-9wj4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1239977",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Windows opened from a sandboxed top-level document do not inherit its sandbox restrictions",
+      "url": "https://github.com/advisories/GHSA-gr2m-v5gq-v685",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1239981",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: File and HTTP protocol handlers allow cross-origin reads without corsEnabled",
+      "url": "https://github.com/advisories/GHSA-j84w-jfhq-vhvj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240060",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Local race condition in Squirrel.Mac update installation on macOS",
+      "url": "https://github.com/advisories/GHSA-vv43-5jgx-7qv8",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240100",
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240104",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240108",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "paths": [
+        ".>@babel/cli>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint-plugin-import>eslint>minimatch>brace-expansion",
+        ".>eslint-plugin-import>minimatch>brace-expansion",
+        ".>eslint>file-entry-cache>flat-cache>rimraf>glob>minimatch>brace-expansion",
+        ".>eslint>minimatch>brace-expansion"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240991",
+      "package": "http-cache-semantics",
+      "severity": "high",
+      "title": "http-cache-semantics max-stale handling can disclose cross-user cached responses",
+      "url": "https://github.com/advisories/GHSA-ch52-4w7c-c8xp",
+      "paths": [
+        ".>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1240992",
+      "package": "braces",
+      "severity": "high",
+      "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+      "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+      "paths": [
+        ".>@babel/cli>chokidar>anymatch>micromatch>braces",
+        ".>@babel/cli>chokidar>braces",
+        ".>@babel/cli>chokidar>readdirp>micromatch>braces"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1241196",
+      "package": "flatted",
+      "severity": "high",
+      "title": "Prototype Pollution via parse() in NodeJS flatted",
+      "url": "https://github.com/advisories/GHSA-rf6f-7fwh-wjgh",
+      "paths": [
+        ".>eslint-plugin-import>eslint>file-entry-cache>flat-cache>flatted",
+        ".>eslint>file-entry-cache>flat-cache>flatted"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1241202",
+      "package": "sprintf-js",
+      "severity": "moderate",
+      "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "url": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c",
+      "paths": [
+        ".>electron>@electron/get>global-agent>roarr>sprintf-js",
+        ".>eslint-plugin-import>eslint>js-yaml>argparse>sprintf-js",
+        ".>eslint>js-yaml>argparse>sprintf-js"
+      ]
+    },
+    {
+      "scope": "full",
+      "id": "1241657",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: <webview> can enable Node.js integration in Web Workers despite embedder restrictions",
+      "url": "https://github.com/advisories/GHSA-9qh4-3jw8-366w",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1088948",
+      "package": "got",
+      "severity": "moderate",
+      "title": "Got allows a redirect to a UNIX socket",
+      "url": "https://github.com/advisories/GHSA-pfrx-2q88-qq97",
+      "paths": [
+        ".>electron-pdf-window>got",
+        ".>electron>@electron/get>got"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1088971",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "AutoUpdater module fails to validate certain nested components of the bundle",
+      "url": "https://github.com/advisories/GHSA-77xc-hjv8-ww97",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1088975",
+      "package": "electron",
+      "severity": "low",
+      "title": "Compromised child renderer processes could obtain IPC access without nodeIntegrationInSubFrames being enabled",
+      "url": "https://github.com/advisories/GHSA-mq8j-3h7h-p8g7",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1089220",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Exfiltration of hashed SMB credentials on Windows via file:// redirect",
+      "url": "https://github.com/advisories/GHSA-p2jh-44qj-pf2v",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1092662",
+      "package": "electron",
+      "severity": "low",
+      "title": "Renderers can obtain access to random bluetooth device without permission in Electron",
+      "url": "https://github.com/advisories/GHSA-3p22-ghq8-v749",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1094579",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron vulnerable to out-of-package code execution when launched with arbitrary cwd",
+      "url": "https://github.com/advisories/GHSA-7x97-j373-85x5",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1094583",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron context isolation bypass via nested unserializable return value",
+      "url": "https://github.com/advisories/GHSA-p7v2-p9m8-qqg7",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1096494",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron affected by libvpx's heap buffer overflow in vp8 encoding",
+      "url": "https://github.com/advisories/GHSA-qqvq-6xgj-jw8g",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1096792",
+      "package": "debug",
+      "severity": "low",
+      "title": "Regular Expression Denial of Service in debug",
+      "url": "https://github.com/advisories/GHSA-gxpj-cx7g-858c",
+      "paths": [
+        ".>electron>@electron/get>debug",
+        ".>electron>@electron/get>sumchecker>debug"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1097678",
+      "package": "minimist",
+      "severity": "critical",
+      "title": "Prototype Pollution in minimist",
+      "url": "https://github.com/advisories/GHSA-xvch-5gv4-984h",
+      "paths": [
+        ".>electron>extract-zip>mkdirp>minimist"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1099657",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "ASAR Integrity bypass via filetype confusion in electron",
+      "url": "https://github.com/advisories/GHSA-7m48-wc93-9g85",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1102329",
+      "package": "deep-extend",
+      "severity": "critical",
+      "title": "Prototype Pollution in deep-extend",
+      "url": "https://github.com/advisories/GHSA-hr2v-3952-633q",
+      "paths": [
+        ".>electron-pdf-window>deep-extend"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1102456",
+      "package": "http-cache-semantics",
+      "severity": "high",
+      "title": "http-cache-semantics vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-rc47-6667-2j5j",
+      "paths": [
+        ".>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1105820",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron vulnerable to Heap Buffer Overflow in NativeImage",
+      "url": "https://github.com/advisories/GHSA-6r2x-8pq8-9489",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1107272",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron has ASAR Integrity Bypass via resource modification",
+      "url": "https://github.com/advisories/GHSA-vmqv-hx8q-j7mg",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1112921",
+      "package": "semver",
+      "severity": "high",
+      "title": "semver vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+      "paths": [
+        ".>electron>@electron/get>global-agent>semver"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1112922",
+      "package": "semver",
+      "severity": "high",
+      "title": "semver vulnerable to Regular Expression Denial of Service",
+      "url": "https://github.com/advisories/GHSA-c2qf-rxjj-qqgw",
+      "paths": [
+        ".>electron>@electron/get>semver"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1115806",
+      "package": "lodash",
+      "severity": "high",
+      "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+      "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc",
+      "paths": [
+        ".>electron>@electron/get>global-tunnel-ng>lodash"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1115810",
+      "package": "lodash",
+      "severity": "moderate",
+      "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+      "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh",
+      "paths": [
+        ".>electron>@electron/get>global-tunnel-ng>lodash"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116041",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: AppleScript injection in app.moveToApplicationsFolder on macOS",
+      "url": "https://github.com/advisories/GHSA-5rqw-r77c-jp79",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116045",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Service worker can spoof executeJavaScript IPC replies",
+      "url": "https://github.com/advisories/GHSA-xj5x-m3f3-5x3h",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116049",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Incorrect origin passed to permission request handler for iframe requests",
+      "url": "https://github.com/advisories/GHSA-r5p7-gp4j-qhrx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116053",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Out-of-bounds read in second-instance IPC on macOS and Linux",
+      "url": "https://github.com/advisories/GHSA-3c8v-cfp5-9885",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116057",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: nodeIntegrationInWorker not correctly scoped in shared renderer processes",
+      "url": "https://github.com/advisories/GHSA-xwr5-m59h-vwqr",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116060",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in offscreen child window paint callback",
+      "url": "https://github.com/advisories/GHSA-532v-xpq5-8h95",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116064",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Registry key path injection in app.setAsDefaultProtocolClient on Windows",
+      "url": "https://github.com/advisories/GHSA-mwmh-mq4g-g6gr",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116068",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Use-after-free in download save dialog callback",
+      "url": "https://github.com/advisories/GHSA-9w97-2464-8783",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116072",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in WebContents fullscreen, pointer-lock, and keyboard-lock permission callbacks",
+      "url": "https://github.com/advisories/GHSA-8337-3p73-46f4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116076",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Use-after-free in PowerMonitor on Windows and macOS",
+      "url": "https://github.com/advisories/GHSA-jjp3-mq3x-295m",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116084",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Unquoted executable path in app.setLoginItemSettings on Windows",
+      "url": "https://github.com/advisories/GHSA-jfqx-fxh3-c62j",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116088",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: HTTP Response Header Injection in custom protocol handlers and webRequest",
+      "url": "https://github.com/advisories/GHSA-4p4r-m79c-wq3v",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116092",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: USB device selection not validated against filtered device list",
+      "url": "https://github.com/advisories/GHSA-9899-m83m-qhpj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116259",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Crash in clipboard.readImage() on malformed clipboard image data",
+      "url": "https://github.com/advisories/GHSA-f37v-82c4-4x64",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1116320",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Named window.open targets not scoped to the opener's browsing context",
+      "url": "https://github.com/advisories/GHSA-f3pv-wv63-48x8",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1117459",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Renderer command-line switch injection via undocumented commandLineSwitches webPreference",
+      "url": "https://github.com/advisories/GHSA-9wfr-w7mm-pc7f",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1120370",
+      "package": "lodash",
+      "severity": "moderate",
+      "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+      "url": "https://github.com/advisories/GHSA-xxjr-mmjv-4gpg",
+      "paths": [
+        ".>electron>@electron/get>global-tunnel-ng>lodash"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136551",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Parent process code-sign check is spoofable",
+      "url": "https://github.com/advisories/GHSA-jm7p-cc5g-qwxx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136552",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Custom protocol with supportFetchAPI but not corsEnabled allows cross-origin reads",
+      "url": "https://github.com/advisories/GHSA-v3j7-r9gq-3gjw",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136559",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Extension tab APIs operate across session boundaries",
+      "url": "https://github.com/advisories/GHSA-m55f-7gqj-fr98",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136560",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: shell.openPath path validation bypass via embedded null byte",
+      "url": "https://github.com/advisories/GHSA-5c9j-mhmv-5xgx",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136567",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Context isolation bypass via Function.prototype.bind hijack",
+      "url": "https://github.com/advisories/GHSA-h7rp-cf8h-j98x",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136571",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Cross-origin iframe can position native autofill popup",
+      "url": "https://github.com/advisories/GHSA-x8rc-wpg4-grpf",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136575",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Permission Check Handler Receives Main Frame Origin Instead of Requesting Iframe Origin",
+      "url": "https://github.com/advisories/GHSA-9pf5-hg6p-4pwp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136579",
+      "package": "electron",
+      "severity": "low",
+      "title": "Electron: Off-screen rendering trusts GPU-supplied geometry over shared-memory size",
+      "url": "https://github.com/advisories/GHSA-pfmc-3mgc-p6fp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136590",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: HTTP redirect followed into local file loader",
+      "url": "https://github.com/advisories/GHSA-v64r-4m7r-3mvq",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136597",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: window.open features string controls some window options considered privileged",
+      "url": "https://github.com/advisories/GHSA-v93f-fgjr-hjrj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136607",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Sandboxed iframe can bypass the allow-popups restriction via the OpenURL navigation path",
+      "url": "https://github.com/advisories/GHSA-9f4c-93c8-jc8g",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136634",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Sandboxed iframes can launch external protocol handlers",
+      "url": "https://github.com/advisories/GHSA-p2rr-rvmm-c5fp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136647",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: DevTools embedder handler executes arbitrary files via shell open",
+      "url": "https://github.com/advisories/GHSA-f2r8-jv7c-xqmp",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136651",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: contextBridge object copy honors prototype setters",
+      "url": "https://github.com/advisories/GHSA-ff2p-hmqr-hxm4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1136659",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: DevTools JavaScript Injection via Unsanitized Dock State Parameter",
+      "url": "https://github.com/advisories/GHSA-4f78-qhmw-8j8m",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1139346",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip unvalidated symlink path traversal",
+      "url": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
+      "paths": [
+        ".>electron>extract-zip"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1193685",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip allows arbitrary file writes through symlink archive entries",
+      "url": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
+      "paths": [
+        ".>electron>extract-zip"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1239973",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron drops inherited HTML sandbox restrictions for popups opened through OpenURLFromTab",
+      "url": "https://github.com/advisories/GHSA-hq2x-r82h-9wj4",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1239977",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Windows opened from a sandboxed top-level document do not inherit its sandbox restrictions",
+      "url": "https://github.com/advisories/GHSA-gr2m-v5gq-v685",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1239981",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: File and HTTP protocol handlers allow cross-origin reads without corsEnabled",
+      "url": "https://github.com/advisories/GHSA-j84w-jfhq-vhvj",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1240060",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Local race condition in Squirrel.Mac update installation on macOS",
+      "url": "https://github.com/advisories/GHSA-vv43-5jgx-7qv8",
+      "paths": [
+        ".>electron"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1240991",
+      "package": "http-cache-semantics",
+      "severity": "high",
+      "title": "http-cache-semantics max-stale handling can disclose cross-user cached responses",
+      "url": "https://github.com/advisories/GHSA-ch52-4w7c-c8xp",
+      "paths": [
+        ".>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1241202",
+      "package": "sprintf-js",
+      "severity": "moderate",
+      "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "url": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c",
+      "paths": [
+        ".>electron>@electron/get>global-agent>roarr>sprintf-js"
+      ]
+    },
+    {
+      "scope": "production",
+      "id": "1241657",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: <webview> can enable Node.js integration in Web Workers despite embedder restrictions",
+      "url": "https://github.com/advisories/GHSA-9qh4-3jw8-366w",
+      "paths": [
+        ".>electron"
+      ]
+    }
+  ]
+}

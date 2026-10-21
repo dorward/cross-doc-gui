@@ -1,0 +1,16 @@
+# Every dependency installation script must be reviewed explicitly.
+strictDepBuilds: true
+allowBuilds:
+  # Electron downloads the pinned desktop runtime.
+  electron: true
+  # esbuild verifies its platform binary during installation.
+  esbuild: true
+  # Sass uses prebuilt binaries; the optional native watcher is unnecessary.
+  '@parcel/watcher': false
+minimumReleaseAgeExclude:
+  # Reviewed exact stable releases, matching the sibling baseline.
+  - sass@1.106.0
+  - electron@45.0.0
+  - vite@8.3.5
+patchedDependencies:
+  primereact@10.9.9: patches/primereact@10.9.9.patch

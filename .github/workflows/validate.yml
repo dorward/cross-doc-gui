@@ -1,0 +1,157 @@
+name: Validate GUI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '37 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      pdf:
+        description: Also validate real Prince and packaged PDF preview on a self-hosted desktop runner
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  desktop:
+    name: ${{ matrix.os }} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: ['24.22.0', '26.12.0']
+    defaults:
+      run:
+        working-directory: gui
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: gui
+          persist-credentials: false
+      - name: Check out latest sibling master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: dorward/cross-doc
+          ref: master
+          path: cross-doc
+          persist-credentials: false
+      - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
+        with:
+          package_json_file: gui/package.json
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+          cache-dependency-path: |
+            gui/pnpm-lock.yaml
+            cross-doc/pnpm-lock.yaml
+      - name: Record tested library revision
+        run: git -C ../cross-doc log -1 --format="%H %s"
+      - name: Install and build sibling (prepare) before resolving the GUI snapshot
+        run: pnpm --dir ../cross-doc install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run check:package-manager
+      - run: pnpm run typecheck
+      - run: pnpm run lint
+      - run: pnpm run format:check
+      - run: pnpm run test:coverage
+      - name: Allow Chromium to create its Linux user-namespace sandbox
+        if: runner.os == 'Linux'
+        run: |
+          if test -f /proc/sys/kernel/apparmor_restrict_unprivileged_userns; then
+            sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          fi
+      - name: Real Electron process checks
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Linux ]; then
+            xvfb-run -a pnpm run test:electron
+            xvfb-run -a pnpm run test:dev
+          else
+            pnpm run test:electron
+            pnpm run test:dev
+          fi
+      - run: pnpm run make
+      - name: Launch the extracted ZIP outside the repository
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Linux ]; then
+            xvfb-run -a pnpm run test:package -- --zip
+          else
+            pnpm run test:package -- --zip
+          fi
+      - run: pnpm audit
+      - run: pnpm audit --prod
+      - name: Ensure checks did not modify tracked inputs
+        run: git diff --exit-code
+      - name: Keep unsigned review artifacts
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cross-doc-gui-${{ matrix.os }}-node-${{ matrix.node }}
+          path: gui/out/make/zip/**/*.zip
+          if-no-files-found: error
+          retention-days: 7
+
+  audit:
+    name: Committed lockfile security audit
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - run: pnpm run check:package-manager
+      # Audit the committed graph even if upstream compatibility/build is broken.
+      - name: Full dependency audit
+        id: full
+        continue-on-error: true
+        run: pnpm audit
+      - name: Production dependency audit
+        id: production
+        continue-on-error: true
+        run: pnpm audit --prod
+      - name: Fail if either audit failed
+        if: steps.full.outcome != 'success' || steps.production.outcome != 'success'
+        run: exit 1
+
+  pdf:
+    if: github.event_name == 'workflow_dispatch' && inputs.pdf
+    runs-on: [self-hosted, prince, desktop]
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: gui
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: gui
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: dorward/cross-doc
+          ref: master
+          path: cross-doc
+          persist-credentials: false
+      - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
+        with:
+          package_json_file: gui/package.json
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: gui/.node-version
+      - run: git -C ../cross-doc log -1 --format="%H %s"
+      - run: pnpm --dir ../cross-doc install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run test:pdf
+      - run: pnpm run test:timeout
+      - run: pnpm run make
+      - run: pnpm run test:package -- --zip --pdf

@@ -1,0 +1,441 @@
+diff --git a/column/column.d.ts b/column/column.d.ts
+index bac78ab876465c24e64772621ee8860ad67a2191..a9673324e1a725234f1d10d30f72ddc1cd60d5f2 100644
+--- a/column/column.d.ts
++++ b/column/column.d.ts
+@@ -390,7 +390,7 @@ interface ColumnBodyExpanderOptions {
+     /**
+      * Custom JSX element for the options.
+      */
+-    element?: JSX.Element;
++    element?: React.JSX.Element;
+ }
+ 
+ interface ColumnBodyRowEditorOptions {
+@@ -401,7 +401,7 @@ interface ColumnBodyRowEditorOptions {
+     /**
+      * Custom JSX element for the options.
+      */
+-    element?: JSX.Element;
++    element?: React.JSX.Element;
+     /**
+      * Event on save click of the row editor.
+      * @param {*} event  - Browser event.
+diff --git a/fieldset/fieldset.d.ts b/fieldset/fieldset.d.ts
+index dd1de804c831a751acebb81c1ff67be3a9d4b9db..c63eb6f28f9517bba1a2cb47e7dd38b591b17771 100644
+--- a/fieldset/fieldset.d.ts
++++ b/fieldset/fieldset.d.ts
+@@ -115,7 +115,7 @@ interface FieldsetToggleEvent {
+  * Defines valid properties in Fieldset component. In addition to these, all properties of HTMLFieldSetElement can be used in this component.
+  * @group Properties
+  */
+-export interface FieldsetProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLFieldSetElement>, HTMLFieldSetElement>, 'ref'> {
++export interface FieldsetProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLFieldSetElement>, HTMLFieldSetElement>, 'ref' | 'onToggle'> {
+     /**
+      * Header text of the fieldset.
+      */
+diff --git a/fileupload/fileupload.d.ts b/fileupload/fileupload.d.ts
+index 9c7e5b44cd542a6dfb5a0d09e70e8661f5ae66f0..14dbc180b19c468683df5446367ed8da9c5eb12a 100644
+--- a/fileupload/fileupload.d.ts
++++ b/fileupload/fileupload.d.ts
+@@ -207,19 +207,19 @@ interface FileUploadHeaderTemplateOptions {
+     /**
+      * The choose button element.
+      */
+-    chooseButton: JSX.Element;
++    chooseButton: React.JSX.Element;
+     /**
+      * The upload button element.
+      */
+-    uploadButton: JSX.Element;
++    uploadButton: React.JSX.Element;
+     /**
+      * The cancel button element.
+      */
+-    cancelButton: JSX.Element;
++    cancelButton: React.JSX.Element;
+     /**
+      * The default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props passed to the component.
+      * @type {FileUploadProps}
+@@ -255,19 +255,19 @@ interface ItemTemplateOptions {
+     /**
+      * Element to display preview of the file.
+      */
+-    previewElement: JSX.Element;
++    previewElement: React.JSX.Element;
+     /**
+      * Element to display the name of the file.
+      */
+-    fileNameElement: JSX.Element;
++    fileNameElement: React.JSX.Element;
+     /**
+      * Element to display the size of the file.
+      */
+-    sizeElement: JSX.Element;
++    sizeElement: React.JSX.Element;
+     /**
+      * Element to display the remove button.
+      */
+-    removeElement: JSX.Element;
++    removeElement: React.JSX.Element;
+     /**
+      * Formatted string of the file size.
+      */
+@@ -283,7 +283,7 @@ interface ItemTemplateOptions {
+     /**
+      * Default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * All component props
+      * @type {FileUploadProps}
+diff --git a/inplace/inplace.d.ts b/inplace/inplace.d.ts
+index 69edf6612882b775ab5d227c1423b881981ada2a..c5a0918dc4f7902b6afad1593be313790dc0cb1f 100644
+--- a/inplace/inplace.d.ts
++++ b/inplace/inplace.d.ts
+@@ -89,7 +89,7 @@ interface InplaceToggleEvent {
+  * Defines valid properties in Inplace component. In addition to these, all properties of HTMLDivElement can be used in this component.
+  * @group Properties
+  */
+-export interface InplaceProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'ref'> {
++export interface InplaceProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'ref' | 'onToggle'> {
+     /**
+      * Whether the content is displayed or not. To use in controlled mode you must implement `onToggle` callback at a minimum.
+      * @defaultValue false
+diff --git a/multiselect/multiselect.d.ts b/multiselect/multiselect.d.ts
+index 22687c49fec394521f41ff7839767c279e482964..19a0edadaef2b49fbbc6a9d3dd6b97d8d80baf7e 100644
+--- a/multiselect/multiselect.d.ts
++++ b/multiselect/multiselect.d.ts
+@@ -225,7 +225,7 @@ interface MultiSelectPanelHeaderTemplateEvent {
+     /**
+      * The checkbox element for selecting items.
+      */
+-    checkboxElement: JSX.Element;
++    checkboxElement: React.JSX.Element;
+     /**
+      * Whether the checkbox is checked.
+      */
+@@ -238,11 +238,11 @@ interface MultiSelectPanelHeaderTemplateEvent {
+     /**
+      * The element for filtering the items.
+      */
+-    filterElement: JSX.Element;
++    filterElement: React.JSX.Element;
+     /**
+      * The close element.
+      */
+-    closeElement: JSX.Element;
++    closeElement: React.JSX.Element;
+     /**
+      * The classname for the close element.
+      */
+@@ -259,7 +259,7 @@ interface MultiSelectPanelHeaderTemplateEvent {
+     /**
+      * The default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Multiselect component
+      */
+diff --git a/multistatecheckbox/multistatecheckbox.d.ts b/multistatecheckbox/multistatecheckbox.d.ts
+index 52a9d311ebba384a13d4beb4e738440ed890db0d..11095cf1bdb14ed455a36d45fc63a2af2c3e1492 100644
+--- a/multistatecheckbox/multistatecheckbox.d.ts
++++ b/multistatecheckbox/multistatecheckbox.d.ts
+@@ -104,7 +104,7 @@ interface MultiStateCheckboxIconTemplateEvent {
+     /**
+      * The default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props passed to the component.
+      */
+diff --git a/paginator/paginator.d.ts b/paginator/paginator.d.ts
+index a2c390aae29ae7154d20f29bc6f176ec26a25f0e..05274593c51f31c2f22121c062610586cadd3a0f 100644
+--- a/paginator/paginator.d.ts
++++ b/paginator/paginator.d.ts
+@@ -172,7 +172,7 @@ interface PaginatorFirstPageLinkOptions {
+     /**
+      * JSX element to be used as the first page link.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The page number.
+      */
+@@ -223,7 +223,7 @@ interface PaginatorPrevPageLinkOptions {
+     /**
+      * JSX element to be used as the prev page link.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The page number.
+      */
+@@ -304,7 +304,7 @@ interface PaginatorPageLinksOptions {
+     /**
+      * JSX element to be used as the page links.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Paginator component
+      */
+@@ -335,7 +335,7 @@ interface PaginatorNextPageLinkOptions {
+     /**
+      * JSX element to be used as the next page link.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The page number.
+      */
+@@ -386,7 +386,7 @@ interface PaginatorLastPageLinkOptions {
+     /**
+      * JSX element to be used as the last page link.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The page number.
+      */
+@@ -495,7 +495,7 @@ interface PaginatorRowsPerPageDropdownOptions {
+     /**
+      * JSX element to be used as the rows per page dropdown.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Paginator component.
+      */
+@@ -541,7 +541,7 @@ interface PaginatorCurrentPageReportOptions {
+     /**
+      * JSX element to be used as the current page report element.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Paginator component.
+      */
+@@ -573,7 +573,7 @@ interface PaginatorJumpToPageInputOptions {
+     /**
+      * JSX element to be used as the jump to page input element.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Paginator component.
+      */
+diff --git a/panel/panel.d.ts b/panel/panel.d.ts
+index acaafb239f641c85de193743aad9ec715a1c9686..5a94dc777f95f7e88d8ef1fae5b519cc4cb9df00 100644
+--- a/panel/panel.d.ts
++++ b/panel/panel.d.ts
+@@ -49,19 +49,19 @@ interface PanelHeaderTemplateOptions {
+     /**
+      * The JSX element that represents the title of the panel.
+      */
+-    titleElement: JSX.Element;
++    titleElement: React.JSX.Element;
+     /**
+      * The JSX element that represents the icons of the panel.
+      */
+-    iconsElement: JSX.Element;
++    iconsElement: React.JSX.Element;
+     /**
+      * The JSX element that represents the toggler of the panel.
+      */
+-    togglerElement: JSX.Element;
++    togglerElement: React.JSX.Element;
+     /**
+      * The JSX element that represents the panel.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the Panel component.
+      */
+@@ -82,7 +82,7 @@ interface PanelFooterTemplateOptions {
+     /**
+      * The JSX element that represents the panel.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the Panel component.
+      */
+@@ -184,7 +184,7 @@ export interface PanelState {
+  * Defines valid properties in Panel component. In addition to these, all properties of HTMLDivElement can be used in this component.
+  * @group Properties
+  */
+-export interface PanelProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'ref'> {
++export interface PanelProps extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'ref' | 'onToggle'> {
+     /**
+      * Custom header template of the panel.
+      */
+diff --git a/password/password.d.ts b/password/password.d.ts
+index 414b1053cc3e14cf382322a8bddef8971d1be80b..5d057845e71a202ea603131302c6d6dcf779f53c 100644
+--- a/password/password.d.ts
++++ b/password/password.d.ts
+@@ -139,7 +139,7 @@ interface PasswordIconEvent {
+     /**
+      * Default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * All component props.
+      */
+diff --git a/speeddial/speeddial.d.ts b/speeddial/speeddial.d.ts
+index f6a16679fca73fbb4ac20446f9cc3ed2478ffd30..b1a9ebac7f12ef76bbddf3e15eb4549ac7aa0df4 100644
+--- a/speeddial/speeddial.d.ts
++++ b/speeddial/speeddial.d.ts
+@@ -95,7 +95,7 @@ interface SpeedDialButtonOptions {
+     /**
+      * Default element created by the component.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * Properties passed to the component.
+      */
+diff --git a/tabview/tabview.d.ts b/tabview/tabview.d.ts
+index c8923d763dc80263f0fa065ea9510217058145f1..7cf4a2219975ed809c33c18ea6a6fead41db6a98 100644
+--- a/tabview/tabview.d.ts
++++ b/tabview/tabview.d.ts
+@@ -44,19 +44,19 @@ interface TabPanelHeaderTemplateOptions {
+     /**
+      * Left icon of the tab header.
+      */
+-    leftIconElement: JSX.Element;
++    leftIconElement: React.JSX.Element;
+     /**
+      * The title element of the tab header.
+      */
+-    titleElement: JSX.Element;
++    titleElement: React.JSX.Element;
+     /**
+      * Right icon of the tab header.
+      */
+-    rightIconElement: JSX.Element;
++    rightIconElement: React.JSX.Element;
+     /**
+      * The JSX element of the tab header.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the tab panel component.
+      */
+diff --git a/tree/tree.d.ts b/tree/tree.d.ts
+index 1566a76d766e90ed02098d81836dcab110bdb9ef..16846eb43144063298d13fffbefe26e45616b714 100644
+--- a/tree/tree.d.ts
++++ b/tree/tree.d.ts
+@@ -171,11 +171,11 @@ interface TreeHeaderTemplateOptions {
+     /**
+      * The JSX element of the filter input.
+      */
+-    filterElement: JSX.Element;
++    filterElement: React.JSX.Element;
+     /**
+      * The JSX element of the tree header.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the tree header component.
+      */
+@@ -218,7 +218,7 @@ interface TreeNodeTemplateOptions {
+     /**
+      * The JSX element that represents the tree node.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the Tree component.
+      */
+@@ -249,7 +249,7 @@ interface TreeTogglerTemplateOptions {
+     /**
+      * JSX element to be used as the template options.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of Tree component
+      */
+diff --git a/treeselect/treeselect.d.ts b/treeselect/treeselect.d.ts
+index d5cb2fa62a0240d017030bf8b40a07a4f3be6882..680408f67b6a4d8df450e23378a931b826aff42a 100644
+--- a/treeselect/treeselect.d.ts
++++ b/treeselect/treeselect.d.ts
+@@ -177,11 +177,11 @@ interface TreeSelectPanelHeaderTemplateOptions {
+     /**
+      * The JSX element that represents the filter of the panel.
+      */
+-    filterElement: JSX.Element;
++    filterElement: React.JSX.Element;
+     /**
+      * The JSX element that represents the close of the panel.
+      */
+-    closeElement: JSX.Element;
++    closeElement: React.JSX.Element;
+     /**
+      * Style class of the panel close element.
+      */
+@@ -197,7 +197,7 @@ interface TreeSelectPanelHeaderTemplateOptions {
+     /**
+      * The JSX element that represents the panel.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the TreeSelect component.
+      */
+@@ -386,7 +386,7 @@ interface TreeSelectNodeDoubleClickEvent extends TreeSelectNodeClickEvent {}
+  * Defines valid properties in TreeSelect component. In addition to these, all properties of HTMLDivElement can be used in this component.
+  * @group Properties
+  */
+-export interface TreeSelectProps extends Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'onChange' | 'value' | 'ref' | 'pt'> {
++export interface TreeSelectProps extends Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'onChange' | 'value' | 'ref' | 'pt' | 'onToggle'> {
+     /**
+      * DOM element instance where the overlay panel should be mounted. Valid values are any DOM Element and 'self'. The self value is used to render a component where it is located.
+      * @defaultValue document.body
+diff --git a/treetable/treetable.d.ts b/treetable/treetable.d.ts
+index 5139b4beb04faa40065f7f1af9aa92149770a79f..6cad91b116c6e322d593de829df864b440f60613 100644
+--- a/treetable/treetable.d.ts
++++ b/treetable/treetable.d.ts
+@@ -580,7 +580,7 @@ interface TreeTableColReorderEvent {
+  * Defines valid properties in TreeTable component. In addition to these, all properties of HTMLDivElement can be used in this component.
+  * @group Properties
+  */
+-export interface TreeTableProps extends Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'size' | 'onContextMenu' | 'onSelect' | 'ref' | 'value'> {
++export interface TreeTableProps extends Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'size' | 'onContextMenu' | 'onSelect' | 'ref' | 'value' | 'onToggle'> {
+     /**
+      * Whether to show it even there is only one page.
+      * @defaultValue true
+diff --git a/virtualscroller/virtualscroller.d.ts b/virtualscroller/virtualscroller.d.ts
+index 7e73f0cea04d85911824dcee2bc4ececf9b40c57..ca2a668e22926c37f7e3c5d2272a8e1d09285572 100644
+--- a/virtualscroller/virtualscroller.d.ts
++++ b/virtualscroller/virtualscroller.d.ts
+@@ -214,7 +214,7 @@ interface VirtualScrollerLoaderIconTemplateOptions {
+     /**
+      * The JSX element that represents the loader icon.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * The props of the VirtualScroller component.
+      */
+@@ -257,7 +257,7 @@ interface VirtualScrollerContentTemplateOptions {
+     /**
+      * Default wrapper element.
+      */
+-    element: JSX.Element;
++    element: React.JSX.Element;
+     /**
+      * Props of VirtualScroller component.
+      */
