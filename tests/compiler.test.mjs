@@ -268,7 +268,7 @@ it('refreshes and publishes configured vaults with duplicate basenames using can
 	await mkdir(join(project, 'notes/history'));
 	await writeFile(
 		join(project, 'notes/history/alice.md'),
-		'---\ntitle: Alice\ntype: person\n---\n# Alice',
+		'---\ntitle: Alice\ntype: person\n---\n# Alice\n\n![Accessible](../../attachments/map.svg "Inline map")',
 	);
 	await writeFile(
 		join(project, 'publishing/project.json'),
@@ -311,6 +311,12 @@ it('refreshes and publishes configured vaults with duplicate basenames using can
 	const html = await readFile(join(project, 'out/auto.html'), 'utf8');
 	expect(html).toContain('id="entry/notes/history/alice"');
 	expect(html).not.toContain('id="entry/notes/alice"');
+	expect(html).toContain('id="figure/notes/history/alice/1"');
+	expect(html).toContain('fig. <span>1</span> Inline map');
+	expect(html).toContain('src="../attachments/map.svg"');
+	expect(await readFile(join(project, 'out/auto-complete.html'), 'utf8')).toContain(
+		'data:image/svg+xml;base64,',
+	);
 	expect(result.artifacts.find((artifact) => artifact.kind === 'css').path).toBe(
 		join(project, 'out/cross-doc.css'),
 	);
