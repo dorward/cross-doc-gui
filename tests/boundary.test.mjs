@@ -486,7 +486,15 @@ describe('artifact and progress transport', () => {
 it('accepts indexed-vault progress only in the declared order and validates legacy-reference diagnostics', async () => {
 	const { stages, stageSequence } = await import('../src/shared/compilation.ts');
 	const accept = stageSequence();
-	for (const stage of ['discover', 'inspect', 'index', ...stages.slice(1)]) {
+	for (const stage of [
+		'discover',
+		'inspect',
+		'index',
+		'read',
+		'parse',
+		'resolve',
+		...stages.slice(3),
+	]) {
 		for (const status of ['started', 'completed'])
 			expect(accept({ stage, status })).toEqual({ stage, status });
 	}
@@ -499,4 +507,38 @@ it('accepts indexed-vault progress only in the declared order and validates lega
 		omitted: 0,
 	};
 	expect(decodeDiagnostics(report)).toEqual(report);
+});
+
+it('bounds, validates and copies candidate paths in resolver diagnostics', async () => {
+	const { decodeDiagnostics, projectDiagnostics } = await import('../src/shared/diagnostics.ts');
+	const item = {
+		code: 'ambiguous-link-target',
+		severity: 'warning',
+		source: 'notes/alice',
+		target: 'bob',
+		candidates: ['notes/people/bob.md', 'notes/history/bob.md'],
+	};
+	const decoded = decodeDiagnostics({ items: [item], omitted: 0 });
+	item.candidates.push('later mutation');
+	expect(decoded.items[0].candidates).toHaveLength(2);
+	for (const candidates of ['bad', [42], [''], Array(101).fill('notes/bob.md')])
+		expect(() => decodeDiagnostics({ items: [{ ...item, candidates }], omitted: 0 })).toThrow(
+			'Invalid diagnostic',
+		);
+	const report = projectDiagnostics([
+		{ ...item, candidates: Array(101).fill('notes/bob.md') },
+		{ ...item, candidates: ['x'.repeat(4097)] },
+		item,
+	]);
+	expect(report.omitted).toBe(2);
+	expect(report.items).toHaveLength(1);
+	expect(report.items[0].candidates).not.toBe(item.candidates);
+});
+it('accepts the optional legacy resolve stage only immediately after parsing', async () => {
+	const { stages, stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const stage of ['discover', 'read', 'parse', 'resolve', ...stages.slice(3)])
+		for (const status of ['started', 'completed'])
+			expect(accept({ stage, status })).toEqual({ stage, status });
+	expect(() => stageSequence()({ stage: 'resolve', status: 'started' })).toThrow();
 });

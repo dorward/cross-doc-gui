@@ -7,7 +7,13 @@ export interface DiagnosticReport {
 			| 'unused-one-way-link'
 			| 'missing-link-target'
 			| 'missing-reciprocal-link'
-			| 'legacy-reference';
+			| 'legacy-reference'
+			| 'ambiguous-link-target'
+			| 'unsupported-link-syntax'
+			| 'missing-heading-target'
+			| 'non-published-link-target'
+			| 'excluded-link-target';
+		candidates?: string[];
 		severity: 'warning';
 		source: string;
 		target: string;

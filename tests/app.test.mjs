@@ -394,3 +394,30 @@ it('loads a saved mode and retains it with a visible error if saving fails', asy
 	expect(select.value).toBe('dark');
 	expect(document.documentElement.dataset.colorMode).toBe('dark');
 });
+
+it('shows resolver diagnostics and candidate paths in the project warnings', async () => {
+	const api = setup();
+	api.chooseProject.mockResolvedValueOnce(
+		success({
+			...snapshot,
+			diagnostics: {
+				items: [
+					{
+						code: 'ambiguous-link-target',
+						severity: 'warning',
+						source: 'alice',
+						target: 'bob#History',
+						candidates: ['data/bob.md#History [1]', 'data/bob.md#History [2]'],
+					},
+				],
+				omitted: 0,
+			},
+		}),
+	);
+	await open();
+	const warnings = screen.getByLabelText('Project warnings');
+	expect(warnings.textContent).toContain('ambiguous target');
+	expect(warnings.textContent).toContain(
+		'Candidates: data/bob.md#History [1], data/bob.md#History [2]',
+	);
+});

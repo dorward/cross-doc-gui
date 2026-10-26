@@ -122,3 +122,8 @@ different folders remain distinguishable. Refresh and publishing preserve canoni
 selection identifiers; configured inspection/index progress and legacy-reference
 warnings pass through the existing bounded IPC validation. Existing projects keep
 their old layout and identifiers. The live legends-walk collection is not migrated yet.
+
+Markdown links and Wikilinks share heading-aware resolution. Project warnings distinguish
+missing/excluded/unpublished targets and show candidate paths for ambiguous links.
+Publishing progress includes link resolution; navigation to a heading counts as a
+relationship to its owning note. The source collection remains unchanged.

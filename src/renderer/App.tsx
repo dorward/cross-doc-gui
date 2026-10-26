@@ -510,8 +510,19 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 										? 'missing reciprocal link from'
 										: item.code === 'legacy-reference'
 											? 'uses legacy reference'
-											: 'one-way exemption has no link to'}{' '}
+											: item.code === 'ambiguous-link-target'
+												? 'ambiguous target'
+												: item.code === 'missing-heading-target'
+													? 'missing heading'
+													: item.code === 'excluded-link-target'
+														? 'target excluded from output'
+														: item.code === 'non-published-link-target'
+															? 'target outside the published collection'
+															: item.code === 'unsupported-link-syntax'
+																? 'unsupported link syntax'
+																: 'one-way exemption has no link to'}{' '}
 								{item.target} ({item.code})
+								{item.candidates && <span> — Candidates: {item.candidates.join(', ')}</span>}
 							</li>
 						))}
 					</ul>
@@ -545,6 +556,7 @@ const stageLabels: Record<StageProgress['stage'], string> = {
 	index: 'Indexing entry identities',
 	read: 'Reading files',
 	parse: 'Parsing entries',
+	resolve: 'Resolving note links',
 	clean: 'Cleaning HTML',
 	metadata: 'Adding metadata',
 	links: 'Checking links',

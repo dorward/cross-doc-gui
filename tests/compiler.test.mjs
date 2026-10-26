@@ -318,3 +318,37 @@ it('refreshes and publishes configured vaults with duplicate basenames using can
 	const accept = stageSequence();
 	for (const event of progress) expect(accept(event)).toEqual(event);
 });
+
+it('shares Markdown/Wikilink heading resolution and returns candidate diagnostics through GUI refresh', async () => {
+	await writeFile(
+		join(project, 'data/bob.md'),
+		'---\ntype: person\ntitle: Bob\n---\n# Bob\n\n## History\n\n## History',
+	);
+	await writeFile(
+		join(project, 'data/alice.md'),
+		'---\ntype: person\ntitle: Alice\n---\n# Alice\n\n[File](bob.md#History) [[bob#History|Wiki]]',
+	);
+	const snapshot = await refreshProject(project);
+	expect(
+		snapshot.diagnostics.items.find((item) => item.code === 'ambiguous-link-target').candidates,
+	).toEqual(['data/bob.md#Bob#History [1]', 'data/bob.md#Bob#History [2]']);
+	await writeFile(
+		join(project, 'data/bob.md'),
+		'---\ntype: person\ntitle: Bob\n---\n# Bob\n\n## History\n\n[Alice](alice.md)',
+	);
+	const events = [];
+	await publishProject(
+		project,
+		{ include: ['alice', 'bob'], theme: 'default' },
+		prince,
+		undefined,
+		(event) => events.push(event),
+	);
+	const html = await readFile(join(project, 'out/auto.html'), 'utf8');
+	expect(html.match(/href="#heading\/bob\/History\/1"/g)).toHaveLength(2);
+	expect(html).toContain('title="History"');
+	const { stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const event of events) expect(accept(event)).toEqual(event);
+	expect(events.some((event) => event.stage === 'resolve')).toBe(true);
+});
