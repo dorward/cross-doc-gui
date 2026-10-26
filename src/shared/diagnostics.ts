@@ -3,7 +3,12 @@ import { exactKeys, record, text } from './validation.js';
 
 export const MAX_DIAGNOSTICS = 1000;
 export const MAX_DIAGNOSTIC_BYTES = 262_144;
-const codes = ['unused-one-way-link', 'missing-link-target', 'missing-reciprocal-link'] as const;
+const codes = [
+	'unused-one-way-link',
+	'missing-link-target',
+	'missing-reciprocal-link',
+	'legacy-reference',
+] as const;
 
 export function decodeDiagnostics(value: unknown): DiagnosticReport {
 	if (

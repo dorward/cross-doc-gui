@@ -3,7 +3,11 @@ import type { Artifact, ArtifactKind, StageProgress } from './compilation.js';
 import type { OutputKind, OutputSettings } from './outputs.js';
 export interface DiagnosticReport {
 	items: {
-		code: 'unused-one-way-link' | 'missing-link-target' | 'missing-reciprocal-link';
+		code:
+			| 'unused-one-way-link'
+			| 'missing-link-target'
+			| 'missing-reciprocal-link'
+			| 'legacy-reference';
 		severity: 'warning';
 		source: string;
 		target: string;

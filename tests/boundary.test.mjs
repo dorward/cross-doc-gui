@@ -482,3 +482,21 @@ describe('artifact and progress transport', () => {
 		await expect(session.publish({})).rejects.toThrow('did not complete');
 	});
 });
+
+it('accepts indexed-vault progress only in the declared order and validates legacy-reference diagnostics', async () => {
+	const { stages, stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const stage of ['discover', 'inspect', 'index', ...stages.slice(1)]) {
+		for (const status of ['started', 'completed'])
+			expect(accept({ stage, status })).toEqual({ stage, status });
+	}
+	expect(() => stageSequence()({ stage: 'index', status: 'started' })).toThrow();
+	const { decodeDiagnostics } = await import('../src/shared/diagnostics.ts');
+	const report = {
+		items: [
+			{ code: 'legacy-reference', severity: 'warning', source: 'notes/alice', target: 'bob' },
+		],
+		omitted: 0,
+	};
+	expect(decodeDiagnostics(report)).toEqual(report);
+});

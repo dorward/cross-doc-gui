@@ -12,7 +12,7 @@ export function treeNodes(snapshot: ProjectSnapshot, disabled = false): TreeNode
 			.filter((entry) => entry.category === id)
 			.map((entry) => ({
 				key: entryKey(entry.slug),
-				label: entry.title,
+				label: entry.slug.includes('/') ? `${entry.title} (${entry.slug}.md)` : entry.title,
 				leaf: true,
 				disabled,
 			}));

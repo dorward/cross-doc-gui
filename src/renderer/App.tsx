@@ -508,7 +508,9 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 									? 'links to non-existent target'
 									: item.code === 'missing-reciprocal-link'
 										? 'missing reciprocal link from'
-										: 'one-way exemption has no link to'}{' '}
+										: item.code === 'legacy-reference'
+											? 'uses legacy reference'
+											: 'one-way exemption has no link to'}{' '}
 								{item.target} ({item.code})
 							</li>
 						))}
@@ -539,6 +541,8 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 const artifactLabels = { css: 'CSS', html: 'HTML', pdf: 'PDF', 'embedded-html': 'Embedded HTML' };
 const stageLabels: Record<StageProgress['stage'], string> = {
 	discover: 'Discovering files',
+	inspect: 'Inspecting project configuration',
+	index: 'Indexing entry identities',
 	read: 'Reading files',
 	parse: 'Parsing entries',
 	clean: 'Cleaning HTML',

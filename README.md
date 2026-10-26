@@ -114,3 +114,11 @@ text/pages and preview (Prince and Poppler required). The default uses a fake
 renderer and needs no Prince installation. This optional workspace check builds
 both applications; run it separately from CLI tests/package commands because
 it rebuilds CLI dist. See tests/README.md for scope and prerequisites.
+
+Projects with `publishing/project.json` use the library's validated configured roots
+and vault-relative entry identities. The chooser still selects the vault/project root.
+The selection tree includes note paths for configured entries, so same-titled notes in
+different folders remain distinguishable. Refresh and publishing preserve canonical
+selection identifiers; configured inspection/index progress and legacy-reference
+warnings pass through the existing bounded IPC validation. Existing projects keep
+their old layout and identifiers. The live legends-walk collection is not migrated yet.

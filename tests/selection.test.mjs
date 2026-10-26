@@ -51,3 +51,20 @@ describe('tree selection', () => {
 		expect(reconcileSelection(snapshot, next, ['person', 'bob'])).toEqual(['bob', 'new']);
 	});
 });
+
+it('disambiguates same-titled vault notes by path and submits only the selected canonical identity', () => {
+	const vault = {
+		...snapshot,
+		entries: [
+			{ slug: 'notes/people/alice', title: 'Alice', category: 'person' },
+			{ slug: 'notes/history/alice', title: 'Alice', category: 'person' },
+		],
+	};
+	expect(treeNodes(vault)[0].children.map((child) => child.label)).toEqual([
+		'Alice (notes/people/alice.md)',
+		'Alice (notes/history/alice.md)',
+	]);
+	expect(selectedSlugs(vault, { [entryKey('notes/history/alice')]: { checked: true } })).toEqual([
+		'notes/history/alice',
+	]);
+});
