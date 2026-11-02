@@ -73,6 +73,7 @@ try {
 		JSON.parse(
 			await readFile(new URL('../node_modules/cross-doc/package.json', import.meta.url), 'utf8'),
 		).version,
+		'Packaged cross-doc version is stale. Run pnpm run package (or pnpm run make for --zip) before testing.',
 	);
 	assert.ok(
 		!manifest.devDependencies && !manifest.scripts && !manifest.config && !manifest.packageManager,
