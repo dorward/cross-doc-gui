@@ -1,5 +1,9 @@
 # Every dependency installation script must be reviewed explicitly.
 strictDepBuilds: true
+overrides:
+  # Electron ASAR still requests vulnerable glob/minimatch major versions.
+  glob: 14.0.2
+  minimatch: 11.0.1
 allowBuilds:
   # Electron downloads the pinned desktop runtime.
   electron: true
