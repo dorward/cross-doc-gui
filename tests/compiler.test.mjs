@@ -256,3 +256,105 @@ process.exitCode=1;
 	});
 	expect(await readFile(join(project, 'out/auto.pdf'), 'utf8')).toBe('partial PDF');
 });
+
+it('refreshes and publishes configured vaults with duplicate basenames using canonical selection', async () => {
+	const { rename } = await import('node:fs/promises');
+	await mkdir(join(project, 'publishing'));
+	await rename(join(project, 'data'), join(project, 'notes'));
+	await rename(join(project, 'notes/categories.json'), join(project, 'publishing/categories.json'));
+	await rename(join(project, 'templates/index.html'), join(project, 'publishing/layout.html'));
+	await rename(join(project, 'templates'), join(project, 'publishing/themes'));
+	await rename(join(project, 'resources'), join(project, 'attachments'));
+	await mkdir(join(project, 'notes/history'));
+	await writeFile(
+		join(project, 'notes/history/alice.md'),
+		'---\ntitle: Alice\ntype: person\n---\n# Alice\n\n![Accessible](../../attachments/map.svg "Inline map")',
+	);
+	await writeFile(
+		join(project, 'publishing/project.json'),
+		JSON.stringify({
+			version: 1,
+			identity: 'vault-path-v1',
+			paths: {
+				entries: 'notes',
+				attachments: 'attachments',
+				categories: 'publishing/categories.json',
+				layout: 'publishing/layout.html',
+				themes: 'publishing/themes',
+				legacyLinks: 'publishing/legacy-links.json',
+			},
+		}),
+	);
+	await writeFile(
+		join(project, 'publishing/legacy-links.json'),
+		JSON.stringify({
+			version: 1,
+			entries: ['alice', 'bob', 'arrival', 'departure'].map((legacySlug) => ({
+				legacySlug,
+				target: `notes/${legacySlug}`,
+			})),
+			figures: [],
+		}),
+	);
+	const snapshot = await refreshProject(project);
+	expect(snapshot.entries.map((entry) => entry.slug)).toContain('notes/alice');
+	expect(snapshot.entries.map((entry) => entry.slug)).toContain('notes/history/alice');
+	expect(snapshot.diagnostics.items.some((item) => item.code === 'legacy-reference')).toBe(true);
+	const progress = [];
+	const result = await publishProject(
+		project,
+		{ theme: 'default', include: ['notes/history/alice'] },
+		prince,
+		undefined,
+		(event) => progress.push(event),
+	);
+	const html = await readFile(join(project, 'out/auto.html'), 'utf8');
+	expect(html).toContain('id="entry/notes/history/alice"');
+	expect(html).not.toContain('id="entry/notes/alice"');
+	expect(html).toContain('id="figure/notes/history/alice/1"');
+	expect(html).toContain('fig. <span>1</span> Inline map');
+	expect(html).toContain('src="../attachments/map.svg"');
+	expect(await readFile(join(project, 'out/auto-complete.html'), 'utf8')).toContain(
+		'data:image/svg+xml;base64,',
+	);
+	expect(result.artifacts.find((artifact) => artifact.kind === 'css').path).toBe(
+		join(project, 'out/cross-doc.css'),
+	);
+	const { stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const event of progress) expect(accept(event)).toEqual(event);
+});
+
+it('shares Markdown/Wikilink heading resolution and returns candidate diagnostics through GUI refresh', async () => {
+	await writeFile(
+		join(project, 'data/bob.md'),
+		'---\ntype: person\ntitle: Bob\n---\n# Bob\n\n## History\n\n## History',
+	);
+	await writeFile(
+		join(project, 'data/alice.md'),
+		'---\ntype: person\ntitle: Alice\n---\n# Alice\n\n[File](bob.md#History) [[bob#History|Wiki]]',
+	);
+	const snapshot = await refreshProject(project);
+	expect(
+		snapshot.diagnostics.items.find((item) => item.code === 'ambiguous-link-target').candidates,
+	).toEqual(['data/bob.md#Bob#History [1]', 'data/bob.md#Bob#History [2]']);
+	await writeFile(
+		join(project, 'data/bob.md'),
+		'---\ntype: person\ntitle: Bob\n---\n# Bob\n\n## History\n\n[Alice](alice.md)',
+	);
+	const events = [];
+	await publishProject(
+		project,
+		{ include: ['alice', 'bob'], theme: 'default' },
+		prince,
+		undefined,
+		(event) => events.push(event),
+	);
+	const html = await readFile(join(project, 'out/auto.html'), 'utf8');
+	expect(html.match(/href="#heading\/bob\/History\/1"/g)).toHaveLength(2);
+	expect(html).toContain('title="History"');
+	const { stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const event of events) expect(accept(event)).toEqual(event);
+	expect(events.some((event) => event.stage === 'resolve')).toBe(true);
+});

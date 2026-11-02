@@ -193,6 +193,19 @@ describe('compiler process lifecycle', () => {
 			vi.useRealTimers();
 		}
 	});
+	it('retries cancellation when a process spawns after close', async () => {
+		const child = new Child();
+		child.kill.mockImplementationOnce(() => false);
+		const worker = new CompilerWorker(() => child);
+		const job = worker.refresh(project);
+		const failure = expect(job).rejects.toThrow('closed');
+		worker.stop();
+		expect(child.kill).toHaveBeenCalledOnce();
+		child.emit('spawn');
+		await failure;
+		expect(child.kill).toHaveBeenCalledTimes(2);
+		expect(child.jobs).toEqual([]);
+	});
 	it('times out before startup and rejects pending work on close', async () => {
 		vi.useFakeTimers();
 		try {
@@ -481,4 +494,64 @@ describe('artifact and progress transport', () => {
 		});
 		await expect(session.publish({})).rejects.toThrow('did not complete');
 	});
+});
+
+it('accepts indexed-vault progress only in the declared order and validates legacy-reference diagnostics', async () => {
+	const { stages, stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const stage of [
+		'discover',
+		'inspect',
+		'index',
+		'read',
+		'parse',
+		'resolve',
+		...stages.slice(3),
+	]) {
+		for (const status of ['started', 'completed'])
+			expect(accept({ stage, status })).toEqual({ stage, status });
+	}
+	expect(() => stageSequence()({ stage: 'index', status: 'started' })).toThrow();
+	const { decodeDiagnostics } = await import('../src/shared/diagnostics.ts');
+	const report = {
+		items: [
+			{ code: 'legacy-reference', severity: 'warning', source: 'notes/alice', target: 'bob' },
+		],
+		omitted: 0,
+	};
+	expect(decodeDiagnostics(report)).toEqual(report);
+});
+
+it('bounds, validates and copies candidate paths in resolver diagnostics', async () => {
+	const { decodeDiagnostics, projectDiagnostics } = await import('../src/shared/diagnostics.ts');
+	const item = {
+		code: 'ambiguous-link-target',
+		severity: 'warning',
+		source: 'notes/alice',
+		target: 'bob',
+		candidates: ['notes/people/bob.md', 'notes/history/bob.md'],
+	};
+	const decoded = decodeDiagnostics({ items: [item], omitted: 0 });
+	item.candidates.push('later mutation');
+	expect(decoded.items[0].candidates).toHaveLength(2);
+	for (const candidates of ['bad', [42], [''], Array(101).fill('notes/bob.md')])
+		expect(() => decodeDiagnostics({ items: [{ ...item, candidates }], omitted: 0 })).toThrow(
+			'Invalid diagnostic',
+		);
+	const report = projectDiagnostics([
+		{ ...item, candidates: Array(101).fill('notes/bob.md') },
+		{ ...item, candidates: ['x'.repeat(4097)] },
+		item,
+	]);
+	expect(report.omitted).toBe(2);
+	expect(report.items).toHaveLength(1);
+	expect(report.items[0].candidates).not.toBe(item.candidates);
+});
+it('accepts the optional legacy resolve stage only immediately after parsing', async () => {
+	const { stages, stageSequence } = await import('../src/shared/compilation.ts');
+	const accept = stageSequence();
+	for (const stage of ['discover', 'read', 'parse', 'resolve', ...stages.slice(3)])
+		for (const status of ['started', 'completed'])
+			expect(accept({ stage, status })).toEqual({ stage, status });
+	expect(() => stageSequence()({ stage: 'resolve', status: 'started' })).toThrow();
 });

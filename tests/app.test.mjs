@@ -172,8 +172,12 @@ describe('typed React application', () => {
 		await open();
 		expect(screen.queryByRole('combobox', { name: 'Theme' })).toBeNull();
 		const warning = screen.getByRole('img', { name: 'The project has no themes' });
-		fireEvent.mouseEnter(warning);
-		await screen.findByRole('tooltip');
+		// PrimeReact attaches target listeners in an update effect after mount.
+		// Retry the hover until those listeners are ready instead of losing it.
+		await waitFor(() => {
+			fireEvent.mouseEnter(warning);
+			expect(screen.getByRole('tooltip').textContent).toBe('The project has no themes');
+		});
 		expect(screen.getByRole('button', { name: 'Publish' }).disabled).toBe(true);
 	});
 
@@ -393,4 +397,31 @@ it('loads a saved mode and retains it with a visible error if saving fails', asy
 	await screen.findByText('Cannot save appearance');
 	expect(select.value).toBe('dark');
 	expect(document.documentElement.dataset.colorMode).toBe('dark');
+});
+
+it('shows resolver diagnostics and candidate paths in the project warnings', async () => {
+	const api = setup();
+	api.chooseProject.mockResolvedValueOnce(
+		success({
+			...snapshot,
+			diagnostics: {
+				items: [
+					{
+						code: 'ambiguous-link-target',
+						severity: 'warning',
+						source: 'alice',
+						target: 'bob#History',
+						candidates: ['data/bob.md#History [1]', 'data/bob.md#History [2]'],
+					},
+				],
+				omitted: 0,
+			},
+		}),
+	);
+	await open();
+	const warnings = screen.getByLabelText('Project warnings');
+	expect(warnings.textContent).toContain('ambiguous target');
+	expect(warnings.textContent).toContain(
+		'Candidates: data/bob.md#History [1], data/bob.md#History [2]',
+	);
 });

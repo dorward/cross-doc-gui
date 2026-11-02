@@ -21,6 +21,7 @@ export interface Compiler {
 
 // Structural interface keeps lifecycle tests independent of Electron's launcher.
 export interface WorkerProcess {
+	on(event: 'spawn', listener: () => void): unknown;
 	on(event: 'message', listener: (message: unknown) => void): unknown;
 	on(event: 'exit', listener: (code: number) => void): unknown;
 	on(event: 'error', listener: () => void): unknown;
@@ -125,6 +126,17 @@ export class CompilerWorker implements Compiler {
 				this.timeoutMs,
 			);
 			this.active = { child, cancel: () => terminate(new Error('Compiler session is closed')) };
+			// Cancellation can race Electron's asynchronous process launch. A kill
+			// before spawn may do nothing, so retry once the process exists.
+			child.on('spawn', () => {
+				if (response && !settled) {
+					try {
+						child.kill();
+					} catch {
+						/* The existing reap deadline bounds termination failure. */
+					}
+				}
+			});
 			child.on('error', () => terminate(new Error('Compiler failed. Please retry.')));
 			child.on('exit', (code) => {
 				if (this.active?.child === child) this.active = null;

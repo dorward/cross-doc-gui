@@ -22,7 +22,7 @@ export const stages = [
 	'output',
 ] as const;
 export interface StageProgress {
-	stage: (typeof stages)[number];
+	stage: (typeof stages)[number] | 'inspect' | 'index' | 'resolve';
 	status: 'started' | 'completed';
 }
 export function decodeArtifacts(value: unknown): Artifact[] {
@@ -60,7 +60,9 @@ export function decodeStage(value: unknown): StageProgress {
 	if (
 		!record(value) ||
 		!exactKeys(value, ['stage', 'status']) ||
-		!stages.includes(value.stage as StageProgress['stage']) ||
+		!([...stages, 'inspect', 'index', 'resolve'] as readonly string[]).includes(
+			value.stage as string,
+		) ||
 		!['started', 'completed'].includes(value.status as string)
 	)
 		throw new Error('Invalid compilation progress');
@@ -72,11 +74,22 @@ export function decodeStage(value: unknown): StageProgress {
 // Exactly two events per stage, in pipeline order. No text or paths cross here.
 export function stageSequence(): (value: unknown) => StageProgress {
 	let index = 0;
+	let sequence: readonly StageProgress['stage'][] = stages;
 	return (value) => {
 		const event = decodeStage(value);
+		if (index === 2 && event.stage === 'inspect')
+			sequence = ['discover', 'inspect', 'index', 'read', 'parse', 'resolve', ...stages.slice(3)];
 		if (
-			index >= stages.length * 2 ||
-			event.stage !== stages[Math.floor(index / 2)] ||
+			event.stage === 'resolve' &&
+			index % 2 === 0 &&
+			sequence[Math.floor(index / 2)] === 'clean'
+		) {
+			const position = Math.floor(index / 2);
+			sequence = [...sequence.slice(0, position), 'resolve', ...sequence.slice(position)];
+		}
+		if (
+			index >= sequence.length * 2 ||
+			event.stage !== sequence[Math.floor(index / 2)] ||
 			event.status !== (index % 2 === 0 ? 'started' : 'completed')
 		)
 			throw new Error('Invalid compilation progress sequence');

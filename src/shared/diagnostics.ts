@@ -3,7 +3,17 @@ import { exactKeys, record, text } from './validation.js';
 
 export const MAX_DIAGNOSTICS = 1000;
 export const MAX_DIAGNOSTIC_BYTES = 262_144;
-const codes = ['unused-one-way-link', 'missing-link-target', 'missing-reciprocal-link'] as const;
+const codes = [
+	'unused-one-way-link',
+	'missing-link-target',
+	'missing-reciprocal-link',
+	'legacy-reference',
+	'ambiguous-link-target',
+	'unsupported-link-syntax',
+	'missing-heading-target',
+	'non-published-link-target',
+	'excluded-link-target',
+] as const;
 
 export function decodeDiagnostics(value: unknown): DiagnosticReport {
 	if (
@@ -19,20 +29,29 @@ export function decodeDiagnostics(value: unknown): DiagnosticReport {
 	const items = Array.from(value.items as unknown[], (item) => {
 		if (
 			!record(item) ||
-			!exactKeys(item, ['code', 'severity', 'source', 'target']) ||
+			!exactKeys(item, ['code', 'severity', 'source', 'target', 'candidates']) ||
 			!codes.includes(item.code as (typeof codes)[number]) ||
 			item.severity !== 'warning' ||
 			!text(item.source) ||
-			!text(item.target)
+			!text(item.target) ||
+			(item.candidates !== undefined &&
+				(!Array.isArray(item.candidates) ||
+					item.candidates.length > 100 ||
+					!item.candidates.every((candidate: unknown) => text(candidate))))
 		)
 			throw new Error('Invalid diagnostic response');
-		bytes += (item.source.length + item.target.length) * 3 + 256;
+		const candidates = item.candidates as string[] | undefined;
+		bytes +=
+			(item.source.length + item.target.length) * 3 +
+			256 +
+			(candidates?.reduce((total, candidate) => total + candidate.length * 3 + 64, 0) ?? 0);
 		if (bytes > MAX_DIAGNOSTIC_BYTES) throw new Error('Diagnostic response exceeds supported size');
 		return {
 			code: item.code as (typeof codes)[number],
 			severity: 'warning' as const,
 			source: item.source,
 			target: item.target,
+			...(candidates ? { candidates: [...candidates] } : {}),
 		};
 	});
 	return { items, omitted: value.omitted as number };
@@ -46,19 +65,29 @@ export function projectDiagnostics(
 	const report: DiagnosticReport = { items: [], omitted: 0 };
 	let bytes = 0;
 	for (const item of items) {
-		const size = (item.source.length + item.target.length) * 3 + 256;
+		const candidates = item.candidates;
 		if (
 			report.items.length >= MAX_DIAGNOSTICS ||
 			!text(item.source) ||
 			!text(item.target) ||
-			bytes + size > MAX_DIAGNOSTIC_BYTES
+			(candidates !== undefined &&
+				(!Array.isArray(candidates) || candidates.length > 100 || !candidates.every(text)))
 		) {
 			report.omitted++;
 			continue;
 		}
+		const size =
+			(item.source.length + item.target.length) * 3 +
+			256 +
+			(candidates?.reduce((total, candidate) => total + candidate.length * 3 + 64, 0) ?? 0);
+		if (bytes + size > MAX_DIAGNOSTIC_BYTES) {
+			report.omitted++;
+			continue;
+		}
 		bytes += size;
-		report.items.push({ ...item });
+		report.items.push({ ...item, ...(candidates ? { candidates: [...candidates] } : {}) });
 	}
+
 	return decodeDiagnostics(report);
 }
 
