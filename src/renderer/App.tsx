@@ -146,13 +146,11 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 				setSnapshot(next);
 				setDiagnostics(next.diagnostics ?? { items: [], omitted: 0 });
 				setStale(false);
-				setTheme((previous) =>
-					next.themes.includes(previous)
-						? previous
-						: next.themes.includes('A5')
-							? 'A5'
-							: (next.themes[0] ?? ''),
-				);
+				setTheme((previous) => {
+					if (next.themes.includes(previous)) return previous;
+					if (next.themes.includes('A5')) return 'A5';
+					return next.themes[0] ?? '';
+				});
 				setStatus('Project refreshed.');
 			},
 			true,
@@ -470,13 +468,7 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 								<tr key={item.kind}>
 									<th scope="row">{artifactLabels[item.kind]}</th>
 									<td className="artifact-path">{item.path}</td>
-									<td>
-										{item.status === 'completed'
-											? 'Completed'
-											: item.status === 'not-started'
-												? 'Not attempted'
-												: 'Completion unverified'}
-									</td>
+									<td>{artifactStatusLabels[item.status]}</td>
 									<td>
 										{item.kind !== 'css' && (
 											<Button
@@ -503,25 +495,7 @@ export function App({ api = window.crossDoc }: { api?: DesktopApi }) {
 					<ul>
 						{diagnostics.items.map((item, index) => (
 							<li key={index}>
-								{item.source}:{' '}
-								{item.code === 'missing-link-target'
-									? 'links to non-existent target'
-									: item.code === 'missing-reciprocal-link'
-										? 'missing reciprocal link from'
-										: item.code === 'legacy-reference'
-											? 'uses legacy reference'
-											: item.code === 'ambiguous-link-target'
-												? 'ambiguous target'
-												: item.code === 'missing-heading-target'
-													? 'missing heading'
-													: item.code === 'excluded-link-target'
-														? 'target excluded from output'
-														: item.code === 'non-published-link-target'
-															? 'target outside the published collection'
-															: item.code === 'unsupported-link-syntax'
-																? 'unsupported link syntax'
-																: 'one-way exemption has no link to'}{' '}
-								{item.target} ({item.code})
+								{item.source}: {diagnosticLabels[item.code]} {item.target} ({item.code})
 								{item.candidates && <span> — Candidates: {item.candidates.join(', ')}</span>}
 							</li>
 						))}
@@ -566,4 +540,21 @@ const stageLabels: Record<StageProgress['stage'], string> = {
 	toc: 'Building table of contents',
 	titles: 'Adding link titles',
 	output: 'Writing HTML, PDF and embedded HTML',
+};
+
+const artifactStatusLabels: Record<Artifact['status'], string> = {
+	completed: 'Completed',
+	'not-started': 'Not attempted',
+	unverified: 'Completion unverified',
+};
+const diagnosticLabels: Record<DiagnosticReport['items'][number]['code'], string> = {
+	'missing-link-target': 'links to non-existent target',
+	'missing-reciprocal-link': 'missing reciprocal link from',
+	'legacy-reference': 'uses legacy reference',
+	'ambiguous-link-target': 'ambiguous target',
+	'missing-heading-target': 'missing heading',
+	'excluded-link-target': 'target excluded from output',
+	'non-published-link-target': 'target outside the published collection',
+	'unsupported-link-syntax': 'unsupported link syntax',
+	'unused-one-way-link': 'one-way exemption has no link to',
 };
