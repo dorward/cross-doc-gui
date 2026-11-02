@@ -193,6 +193,19 @@ describe('compiler process lifecycle', () => {
 			vi.useRealTimers();
 		}
 	});
+	it('retries cancellation when a process spawns after close', async () => {
+		const child = new Child();
+		child.kill.mockImplementationOnce(() => false);
+		const worker = new CompilerWorker(() => child);
+		const job = worker.refresh(project);
+		const failure = expect(job).rejects.toThrow('closed');
+		worker.stop();
+		expect(child.kill).toHaveBeenCalledOnce();
+		child.emit('spawn');
+		await failure;
+		expect(child.kill).toHaveBeenCalledTimes(2);
+		expect(child.jobs).toEqual([]);
+	});
 	it('times out before startup and rejects pending work on close', async () => {
 		vi.useFakeTimers();
 		try {

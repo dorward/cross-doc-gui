@@ -172,8 +172,12 @@ describe('typed React application', () => {
 		await open();
 		expect(screen.queryByRole('combobox', { name: 'Theme' })).toBeNull();
 		const warning = screen.getByRole('img', { name: 'The project has no themes' });
-		fireEvent.mouseEnter(warning);
-		await screen.findByRole('tooltip');
+		// PrimeReact attaches target listeners in an update effect after mount.
+		// Retry the hover until those listeners are ready instead of losing it.
+		await waitFor(() => {
+			fireEvent.mouseEnter(warning);
+			expect(screen.getByRole('tooltip').textContent).toBe('The project has no themes');
+		});
 		expect(screen.getByRole('button', { name: 'Publish' }).disabled).toBe(true);
 	});
 

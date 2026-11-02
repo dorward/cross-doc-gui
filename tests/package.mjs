@@ -37,8 +37,14 @@ try {
 			verbatimSymlinks: true,
 		});
 	}
+	// Forge's ZIP preserves the application directory on Linux, just as it
+	// preserves Cross-Doc.app on macOS. A direct package copy has no wrapper.
 	const bundle =
-		process.platform === 'darwin' ? join(relocated, 'Cross-Doc.app/Contents') : relocated;
+		process.platform === 'darwin'
+			? join(relocated, 'Cross-Doc.app/Contents')
+			: process.argv.includes('--zip')
+				? join(relocated, `Cross-Doc-${process.platform}-${process.arch}`)
+				: relocated;
 	const resources = join(bundle, process.platform === 'darwin' ? 'Resources' : 'resources');
 	const archive = join(resources, 'app.asar');
 	await noEscapingLinks(relocated);

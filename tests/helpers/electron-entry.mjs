@@ -349,9 +349,9 @@ app.on('browser-window-created', (_event, window) => {
 			attacker.destroy();
 			nextWorker = 'slow';
 			const before = children.length;
-			const interrupted = window.webContents
-				.executeJavaScript('window.crossDoc.refresh()')
-				.catch(() => null);
+			// The old renderer's evaluation may never settle after its context is
+			// discarded. Observe worker exit below instead of awaiting that promise.
+			void window.webContents.executeJavaScript('window.crossDoc.refresh()').catch(() => null);
 			await new Promise((resolve, reject) => {
 				const timeout = setTimeout(() => reject(new Error('No pending worker')), 3000);
 				const check = () => {
@@ -370,7 +370,6 @@ app.on('browser-window-created', (_event, window) => {
 			window.webContents.reload();
 			await reloaded;
 			await retired;
-			await interrupted;
 			const reset = await window.webContents.executeJavaScript('window.crossDoc.refresh()');
 			assert.equal(reset.ok, false);
 			assert.match(reset.error, /Open a project/);
